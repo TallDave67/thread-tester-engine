@@ -28,15 +28,6 @@ bool ThreadDriver::init(size_t num_threads)
         threads.back().set_event_logger(m_pEventLogger);
     }
 
-    // log the event ?
-    if(m_pEventLogger)
-    {
-        std::stringstream ss;
-        ss << "create " << num_threads << " threads";
-        std::string event = ss.str();
-        m_pEventLogger->send_event(event);
-    }
-
     return true;
 }
 
@@ -55,15 +46,6 @@ void ThreadDriver::run()
     for(auto & t : threads)
     {
         t.run();
-
-        // log the event ?
-        if(m_pEventLogger)
-        {
-            std::stringstream ss;
-            ss << "thread_wrapper " << t.get_wrapper_id() << " with id = " << t.get_id() << " is launched";
-            std::string event = ss.str();
-            m_pEventLogger->send_event(event);
-        }
     }
 
     for(auto & t : threads)
@@ -74,7 +56,7 @@ void ThreadDriver::run()
         if(m_pEventLogger)
         {
             std::stringstream ss;
-            ss << "thread_wrapper " << t.get_wrapper_id() << " had a thread that terminated with state = " << t.get_termination_state();
+            ss << "{\"event\":\"thread terminated\", \"thread_wrapper\":\"" << t.get_wrapper_id() << "\", \"termination_state\":\"" << t.get_termination_state_as_string() << "\"}";        
             std::string event = ss.str();
             m_pEventLogger->send_event(event);
         }

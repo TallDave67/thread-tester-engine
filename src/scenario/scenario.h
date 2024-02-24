@@ -21,7 +21,8 @@ public:
     std::string & get_id();
     int run();
 
-    bool try_lock_with_timeout(std::timed_mutex & mtx);
+    bool try_lock_with_timeout(std::timed_mutex & mtx, const char* name);
+    void unlock(std::timed_mutex & mtx, const char* name);
 
 protected:
     virtual int do_run();

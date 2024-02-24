@@ -26,7 +26,7 @@ void ThreadManager::runTest_lockOrderInversionSame()
     if(m_pEventLogger)
     {
         std::string event;
-        event = "ThreadManager::runTest_lockOrderInversionSame() running";
+        event = "{\"event\":\"running\", \"test\":\"lockOrderInversionSame\"}";
         m_pEventLogger->send_event(event);
     }
 
@@ -48,7 +48,7 @@ void ThreadManager::runTest_lockOrderInversionInverted()
     if(m_pEventLogger)
     {
         std::string event;
-        event = "ThreadManager::runTest_lockOrderInversionInverted() running";
+        event = "{\"event\":\"running\", \"test\":\"lockOrderInversionInverted\"}";
         m_pEventLogger->send_event(event);
     }
 

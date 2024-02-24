@@ -23,11 +23,9 @@ int main(int argc, char* argv[]) {
     // Launch the corresponding test program based on the test_id
     switch (test_id) {
         case TEST_LOCK_ORDER_INVERSION_SAME:
-            std::cout << "Launching runTest_lockOrderInversionSame..." << std::endl;
             thread_mgr.runTest_lockOrderInversionSame();
             break;
         case TEST_LOCK_ORDER_INVERSION_INVERTED:
-            std::cout << "Launching runTest_lockOrderInversionInverted..." << std::endl;
             thread_mgr.runTest_lockOrderInversionInverted();
             break;
         // Add more cases for additional test programs

@@ -6,6 +6,9 @@
 std::timed_mutex g_mutex_lockOrderInversionInverted_1;
 std::timed_mutex g_mutex_lockOrderInversionInverted_2;
 
+const char* g_mutex_lockOrderInversionInverted_1_name = "mutex1";
+const char* g_mutex_lockOrderInversionInverted_2_name = "mutex2";
+
 Scenario_lockOrderInversionInverted_A::Scenario_lockOrderInversionInverted_A()
 {
     id = "lockOrderInversionInverted_A";
@@ -21,96 +24,40 @@ int Scenario_lockOrderInversionInverted_A::do_run()
     // ***** Step 1
 
     // Attempt to acquire the lock on the 1st mutex with a timeout
-    bool lockAcquired = try_lock_with_timeout(g_mutex_lockOrderInversionInverted_1);
+    bool lockAcquired = try_lock_with_timeout(g_mutex_lockOrderInversionInverted_1, g_mutex_lockOrderInversionInverted_1_name);
 
-    // Use the lock if acquired
+    // Use the lock on the 1st mutex if acquired
     if (lockAcquired) 
     {
-        if(m_pEventLogger)
-        {
-            std::stringstream ss;
-            ss << "scenario with id = " << get_id() << " acquired lock on mutex g_mutex_lockOrderInversionInverted_1";
-            std::string event = ss.str();
-            m_pEventLogger->send_event(event);
-        }
-
-        // Perform operations with the lock
+        // Perform operations with the lock on the 1st mutex 
         long_loop();
     }
     else
     {
-        if(m_pEventLogger)
-        {
-            std::stringstream ss;
-            ss << "scenario with id = " << get_id() << " unable to acquire lock on mutex g_mutex_lockOrderInversionInverted_1 within the timeout";
-            std::string event = ss.str();
-            m_pEventLogger->send_event(event);
-        }
-
         return SCENARIO_RUN_ABORT;
     }
 
     // ***** Step 2
 
     // Attempt to acquire the lock on the 2nd mutex with a timeout
-    lockAcquired = try_lock_with_timeout(g_mutex_lockOrderInversionInverted_2);
+    lockAcquired = try_lock_with_timeout(g_mutex_lockOrderInversionInverted_2, g_mutex_lockOrderInversionInverted_2_name);
 
     // Use the lock if acquired
     if (lockAcquired) 
     {
-        if(m_pEventLogger)
-        {
-            std::stringstream ss;
-            ss << "scenario with id = " << get_id() << " acquired lock on mutex g_mutex_lockOrderInversionInverted_2";
-            std::string event = ss.str();
-            m_pEventLogger->send_event(event);
-        }
-
         // Release the lock on the 1st mutex
-        g_mutex_lockOrderInversionInverted_1.unlock();
+        unlock(g_mutex_lockOrderInversionInverted_1, g_mutex_lockOrderInversionInverted_1_name);
 
-        if(m_pEventLogger)
-        {
-            std::stringstream ss;
-            ss << "scenario with id = " << get_id() << " released lock on mutex g_mutex_lockOrderInversionInverted_1";
-            std::string event = ss.str();
-            m_pEventLogger->send_event(event);
-        }
-
-        // Perform operations with the lock
+        // Perform operations with the lock on the 2nd mutex 
         short_loop();
         
-        // Release the lock
-        g_mutex_lockOrderInversionInverted_2.unlock();
-
-        if(m_pEventLogger)
-        {
-            std::stringstream ss;
-            ss << "scenario with id = " << get_id() << " released lock on mutex g_mutex_lockOrderInversionInverted_2";
-            std::string event = ss.str();
-            m_pEventLogger->send_event(event);
-        }
+        // Release the lock on the 2nd mutex 
+        unlock(g_mutex_lockOrderInversionInverted_2, g_mutex_lockOrderInversionInverted_2_name);
     }
     else
     {
-        if(m_pEventLogger)
-        {
-            std::stringstream ss;
-            ss << "scenario with id = " << get_id() << " unable to acquire lock on mutex g_mutex_lockOrderInversionInverted_2 within the timeout";
-            std::string event = ss.str();
-            m_pEventLogger->send_event(event);
-        }
-
         // Release the lock on the 1st mutex
-        g_mutex_lockOrderInversionInverted_1.unlock();
-
-        if(m_pEventLogger)
-        {
-            std::stringstream ss;
-            ss << "scenario with id = " << get_id() << " released lock on mutex g_mutex_lockOrderInversionInverted_1";
-            std::string event = ss.str();
-            m_pEventLogger->send_event(event);
-        }
+        unlock(g_mutex_lockOrderInversionInverted_1, g_mutex_lockOrderInversionInverted_1_name);
 
         return SCENARIO_RUN_ABORT;
     }
@@ -132,96 +79,40 @@ int Scenario_lockOrderInversionInverted_B::do_run()
     // ***** Step 1
 
     // Attempt to acquire the lock on the 2nd mutex with a timeout
-    bool lockAcquired = try_lock_with_timeout(g_mutex_lockOrderInversionInverted_2);
+    bool lockAcquired = try_lock_with_timeout(g_mutex_lockOrderInversionInverted_2, g_mutex_lockOrderInversionInverted_2_name);
 
-    // Use the lock if acquired
+    // Use the lock on the 2nd mutex if acquired
     if (lockAcquired) 
     {
-        if(m_pEventLogger)
-        {
-            std::stringstream ss;
-            ss << "scenario with id = " << get_id() << " acquired lock on mutex g_mutex_lockOrderInversionInverted_2";
-            std::string event = ss.str();
-            m_pEventLogger->send_event(event);
-        }
-
-        // Perform operations with the lock
+        // Perform operations with the lock on the 2nd mutex
         short_loop();        
     }
     else
     {
-        if(m_pEventLogger)
-        {
-            std::stringstream ss;
-            ss << "scenario with id = " << get_id() << " unable to acquire lock on mutex g_mutex_lockOrderInversionInverted_2 within the timeout";
-            std::string event = ss.str();
-            m_pEventLogger->send_event(event);
-        }
-
         return SCENARIO_RUN_ABORT;
     }
 
     // ***** Step 2
 
     // Attempt to acquire the lock on the 1st mutex with a timeout
-    lockAcquired = try_lock_with_timeout(g_mutex_lockOrderInversionInverted_1);
+    lockAcquired = try_lock_with_timeout(g_mutex_lockOrderInversionInverted_1, g_mutex_lockOrderInversionInverted_1_name);
 
-    // Use the lock if acquired
+    // Use the lock on the 1st mutex if acquired
     if (lockAcquired) 
     {
-        if(m_pEventLogger)
-        {
-            std::stringstream ss;
-            ss << "scenario with id = " << get_id() << " acquired lock on mutex g_mutex_lockOrderInversionInverted_1";
-            std::string event = ss.str();
-            m_pEventLogger->send_event(event);
-        }
-
         // Release the lock on the 2nd mutex
-        g_mutex_lockOrderInversionInverted_2.unlock();
+        unlock(g_mutex_lockOrderInversionInverted_2, g_mutex_lockOrderInversionInverted_2_name);
 
-        if(m_pEventLogger)
-        {
-            std::stringstream ss;
-            ss << "scenario with id = " << get_id() << " released lock on mutex g_mutex_lockOrderInversionInverted_2";
-            std::string event = ss.str();
-            m_pEventLogger->send_event(event);
-        }
-
-        // Perform operations with the lock
+        // Perform operations with the lock on the 1st mutex
         long_loop();
         
-        // Release the lock
-        g_mutex_lockOrderInversionInverted_1.unlock();
-
-        if(m_pEventLogger)
-        {
-            std::stringstream ss;
-            ss << "scenario with id = " << get_id() << " released lock on mutex g_mutex_lockOrderInversionInverted_1";
-            std::string event = ss.str();
-            m_pEventLogger->send_event(event);
-        }
+        // Release the lock on the 1st mutex
+        unlock(g_mutex_lockOrderInversionInverted_1, g_mutex_lockOrderInversionInverted_1_name);
     }
     else
     {
-        if(m_pEventLogger)
-        {
-            std::stringstream ss;
-            ss << "scenario with id = " << get_id() << " unable to acquire lock on mutex g_mutex_lockOrderInversionInverted_1 within the timeout";
-            std::string event = ss.str();
-            m_pEventLogger->send_event(event);
-        }
-
         // Release the lock on the 2nd mutex
-        g_mutex_lockOrderInversionInverted_2.unlock();
-
-        if(m_pEventLogger)
-        {
-            std::stringstream ss;
-            ss << "scenario with id = " << get_id() << " released lock on mutex g_mutex_lockOrderInversionInverted_2";
-            std::string event = ss.str();
-            m_pEventLogger->send_event(event);
-        }
+        unlock(g_mutex_lockOrderInversionInverted_2, g_mutex_lockOrderInversionInverted_2_name);
 
         return SCENARIO_RUN_ABORT;
     }

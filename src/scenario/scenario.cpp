@@ -31,7 +31,7 @@ int Scenario::run()
     if(m_pEventLogger)
     {
         std::stringstream ss;
-        ss << "running scenario with id = " << get_id();
+        ss << "{\"event\":\"running\", \"scenario\":\"" << get_id() << "\"}";
         std::string event = ss.str();
         m_pEventLogger->send_event(event);
     }
@@ -39,17 +39,48 @@ int Scenario::run()
     return do_run();
 }
 
-bool Scenario::try_lock_with_timeout(std::timed_mutex & mtx)
+bool Scenario::try_lock_with_timeout(std::timed_mutex & mtx, const char* name)
 {
-    // Try to acquire the lock on the mutex with a timeout of 15 seconds
+    // Try to acquire the lock on the mutex with a timeout
     if (mtx.try_lock_for(THREAD_TRY_LOCK_TIMEOUT)) 
     {
         // Lock acquired successfully
+        if(m_pEventLogger)
+        {
+            std::stringstream ss;
+            ss << "{\"event\":\"acquired lock\", \"scenario\":\"" << get_id() << "\", \"mutex\":\"" << name << "\"}";
+            std::string event = ss.str();
+            m_pEventLogger->send_event(event);
+        }
+
         return true;
-    } else
+    }
+    else
     {
         // Unable to acquire the lock within the timeout
+        if(m_pEventLogger)
+        {
+            std::stringstream ss;
+            ss << "{\"event\":\"unable to acquire lock\", \"scenario\":\"" << get_id() << "\", \"mutex\":\"" << name << "\", \"timeout_microseconds\":\"" << THREAD_TRY_LOCK_TIMEOUT.count() << "\"}";
+            std::string event = ss.str();
+            m_pEventLogger->send_event(event);
+        }
+
         return false;
+    }
+}
+
+void Scenario::unlock(std::timed_mutex & mtx, const char* name)
+{
+    // Release the lock on the mutex
+    mtx.unlock();
+
+    if(m_pEventLogger)
+    {
+        std::stringstream ss;
+        ss << "{\"event\":\"released lock\", \"scenario\":\"" << get_id() << "\", \"mutex\":\"" << name << "\"}";
+        std::string event = ss.str();
+        m_pEventLogger->send_event(event);
     }
 }
 
