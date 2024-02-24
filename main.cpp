@@ -22,11 +22,11 @@ int main(int argc, char* argv[]) {
 
     // Launch the corresponding test program based on the test_id
     switch (test_id) {
-        case TEST_LOCK_ORDER_INVERSION_SAME:
-            thread_mgr.runTest_lockOrderInversionSame();
+        case TEST_LOCK_ORDER_SAME:
+            thread_mgr.runTest_lockOrderSame();
             break;
-        case TEST_LOCK_ORDER_INVERSION_INVERTED:
-            thread_mgr.runTest_lockOrderInversionInverted();
+        case TEST_LOCK_ORDER_INVERTED:
+            thread_mgr.runTest_lockOrderInverted();
             break;
         // Add more cases for additional test programs
 

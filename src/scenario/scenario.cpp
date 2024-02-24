@@ -61,7 +61,7 @@ bool Scenario::try_lock_with_timeout(std::timed_mutex & mtx, const char* name)
         if(m_pEventLogger)
         {
             std::stringstream ss;
-            ss << "{\"event\":\"unable to acquire lock\", \"scenario\":\"" << get_id() << "\", \"mutex\":\"" << name << "\", \"timeout_microseconds\":\"" << THREAD_TRY_LOCK_TIMEOUT.count() << "\"}";
+            ss << "{\"event\":\"unable to acquire lock\", \"scenario\":\"" << get_id() << "\", \"mutex\":\"" << name << "\", \"timeout_microseconds\":" << THREAD_TRY_LOCK_TIMEOUT.count() << "}";
             std::string event = ss.str();
             m_pEventLogger->send_event(event);
         }

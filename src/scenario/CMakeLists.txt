@@ -10,8 +10,8 @@ include_directories(
 
 add_library(thread-tester-engine-src-scenario
     scenario.cpp
-    scenario_lockOrderInversionSame.cpp
-    scenario_lockOrderInversionInverted.cpp
+    scenario_lockOrderSame.cpp
+    scenario_lockOrderInverted.cpp
 )
 
 target_compile_options(thread-tester-engine-src-scenario PRIVATE

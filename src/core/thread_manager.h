@@ -14,8 +14,8 @@ public:
 
     // Tests
     bool isTestRunning();
-    void runTest_lockOrderInversionSame();
-    void runTest_lockOrderInversionInverted();
+    void runTest_lockOrderSame();
+    void runTest_lockOrderInverted();
 
 private:
     ThreadDriver thread_driver;

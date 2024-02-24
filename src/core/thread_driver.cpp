@@ -56,7 +56,7 @@ void ThreadDriver::run()
         if(m_pEventLogger)
         {
             std::stringstream ss;
-            ss << "{\"event\":\"thread terminated\", \"thread_wrapper\":\"" << t.get_wrapper_id() << "\", \"termination_state\":\"" << t.get_termination_state_as_string() << "\"}";        
+            ss << "{\"event\":\"thread terminated\", \"thread_wrapper\":" << t.get_wrapper_id() << ", \"termination_state\":\"" << t.get_termination_state_as_string() << "\"}";        
             std::string event = ss.str();
             m_pEventLogger->send_event(event);
         }

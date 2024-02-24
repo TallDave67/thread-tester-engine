@@ -33,7 +33,7 @@ ThreadWrapper::~ThreadWrapper()
         if(m_pEventLogger)
         {
             std::stringstream ss;
-            ss << "{\"event\":\"destroy std::thread\", \"thread_wrapper\":\"" << get_wrapper_id() << "\"}";        
+            ss << "{\"event\":\"destroy std::thread\", \"thread_wrapper\":" << get_wrapper_id() << "}";        
             std::string event = ss.str();
             m_pEventLogger->send_event(event);
         }
@@ -117,7 +117,7 @@ int ThreadWrapper::do_run()
     if(m_pEventLogger)
     {
         std::stringstream ss;
-        ss << "{\"event\":\"thread running\", \"thread_wrapper\":\"" << get_wrapper_id() << "\", \"thread\":\"" << std::this_thread::get_id() << "\"}";        
+        ss << "{\"event\":\"thread running\", \"thread_wrapper\":" << get_wrapper_id() << ", \"thread\":" << std::this_thread::get_id() << "}";        
         std::string event = ss.str();
         m_pEventLogger->send_event(event);
 
@@ -130,7 +130,7 @@ int ThreadWrapper::do_run()
     if(m_pEventLogger)
     {
         std::stringstream ss;
-        ss << "{\"event\":\"scenario completed\", \"thread_wrapper\":\"" << get_wrapper_id() << "\", \"thread\":\"" << std::this_thread::get_id() << "\", \"duration_microseconds\":\"" << timer.duration_in_microseconds() << "\"}";        
+        ss << "{\"event\":\"scenario completed\", \"thread_wrapper\":" << get_wrapper_id() << ", \"thread\":" << std::this_thread::get_id() << ", \"duration_microseconds\":" << timer.duration_in_microseconds() << "}";        
         std::string event = ss.str();
         m_pEventLogger->send_event(event);
 
@@ -150,7 +150,7 @@ int ThreadWrapper::run_scenario()
         if(m_pEventLogger)
         {
             std::stringstream ss;
-            ss << "{\"event\":\"no scenario to run\", \"thread_wrapper\":\"" << get_wrapper_id() << "\", \"thread\":\"" << std::this_thread::get_id() << "\"}";        
+            ss << "{\"event\":\"no scenario to run\", \"thread_wrapper\":" << get_wrapper_id() << ", \"thread\":" << std::this_thread::get_id() << "}";        
             std::string event = ss.str();
             m_pEventLogger->send_event(event);
         }

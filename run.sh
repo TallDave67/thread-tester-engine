@@ -1,2 +1,2 @@
 #!/bin/sh
-./build/thread-tester-engine 100
+./build/thread-tester-engine 99
