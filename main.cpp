@@ -28,6 +28,12 @@ int main(int argc, char* argv[]) {
         case TEST_LOCK_ORDER_INVERTED:
             thread_mgr.runTest_lockOrderInverted();
             break;
+        case TEST_SYNC_LATCH:
+            thread_mgr.runTest_syncLatch();
+            break;
+        case TEST_SYNC_BARRIER:
+            thread_mgr.runTest_syncBarrier();
+            break;
         // Add more cases for additional test programs
 
         default:

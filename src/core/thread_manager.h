@@ -16,6 +16,8 @@ public:
     bool isTestRunning();
     void runTest_lockOrderSame();
     void runTest_lockOrderInverted();
+    void runTest_syncLatch();
+    void runTest_syncBarrier();
 
 private:
     ThreadDriver thread_driver;

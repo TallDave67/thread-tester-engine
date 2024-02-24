@@ -84,6 +84,32 @@ void Scenario::unlock(std::timed_mutex & mtx, const char* name)
     }
 }
 
+void Scenario::arrive_and_wait(std::latch & lat, const char* name)
+{
+    if(m_pEventLogger)
+    {
+        std::stringstream ss;
+        ss << "{\"event\":\"arrive_and_wait\", \"scenario\":\"" << get_id() << "\", \"latch\":\"" << name << "\"}";
+        std::string event = ss.str();
+        m_pEventLogger->send_event(event);
+    }
+
+    lat.arrive_and_wait();
+}
+
+void Scenario::arrive_and_wait(std::barrier<void(*)(void) noexcept> & bar, const char* name)
+{
+    if(m_pEventLogger)
+    {
+        std::stringstream ss;
+        ss << "{\"event\":\"arrive_and_wait\", \"scenario\":\"" << get_id() << "\", \"barrier\":\"" << name << "\"}";
+        std::string event = ss.str();
+        m_pEventLogger->send_event(event);
+    }
+
+    bar.arrive_and_wait();
+}
+
 int Scenario::do_run()
 {
     return SCENARIO_RUN_NOOP;
@@ -95,6 +121,14 @@ void Scenario::short_loop()
     {
         std::this_thread::sleep_for(LOOP_ITERATION_DELAY);
     }
+
+    if(m_pEventLogger)
+    {
+        std::stringstream ss;
+        ss << "{\"event\":\"short_loop\", \"scenario\":\"" << get_id() << "\"}";
+        std::string event = ss.str();
+        m_pEventLogger->send_event(event);
+    }
 }
 
 void Scenario::long_loop()
@@ -102,5 +136,13 @@ void Scenario::long_loop()
     for(int i = 0; i < NUM_LONG_LOOP_ITERATIONS; i++)
     {
         std::this_thread::sleep_for(LOOP_ITERATION_DELAY);
+    }
+
+    if(m_pEventLogger)
+    {
+        std::stringstream ss;
+        ss << "{\"event\":\"long_loop\", \"scenario\":\"" << get_id() << "\"}";
+        std::string event = ss.str();
+        m_pEventLogger->send_event(event);
     }
 }

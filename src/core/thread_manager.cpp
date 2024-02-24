@@ -3,6 +3,8 @@
 #include "scenario.h"
 #include "scenario_lockOrderSame.h"
 #include "scenario_lockOrderInverted.h"
+#include "scenario_syncLatch.h"
+#include "scenario_syncBarrier.h"
 
 ThreadManager::ThreadManager()
     : m_pEventLogger(nullptr)
@@ -61,6 +63,58 @@ void ThreadManager::runTest_lockOrderInverted()
     Scenario_lockOrderInverted_B scenarioB;
     scenarioB.set_event_logger(m_pEventLogger);
     thread_driver.get_thread_wrapper(SCENARIO_LOCK_ORDER_INVERTED_THREAD_B)->set_scenario(&scenarioB);
+    //
+    thread_driver.run();
+}
+
+void ThreadManager::runTest_syncLatch()
+{
+    if(m_pEventLogger)
+    {
+        std::string event;
+        event = "{\"event\":\"running\", \"test\":\"syncLatch\"}";
+        m_pEventLogger->send_event(event);
+    }
+
+    thread_driver.init(SCENARIO_SYNC_LATCH_THREAD_COUNT);
+    //
+    Scenario_syncLatch_A scenarioA;
+    scenarioA.set_event_logger(m_pEventLogger);
+    thread_driver.get_thread_wrapper(SCENARIO_SYNC_LATCH_THREAD_A)->set_scenario(&scenarioA);
+    //
+    Scenario_syncLatch_B scenarioB;
+    scenarioB.set_event_logger(m_pEventLogger);
+    thread_driver.get_thread_wrapper(SCENARIO_SYNC_LATCH_THREAD_B)->set_scenario(&scenarioB);
+    //
+    Scenario_syncLatch_C scenarioC;
+    scenarioC.set_event_logger(m_pEventLogger);
+    thread_driver.get_thread_wrapper(SCENARIO_SYNC_LATCH_THREAD_C)->set_scenario(&scenarioC);
+    //
+    thread_driver.run();
+}
+
+void ThreadManager::runTest_syncBarrier()
+{
+    if(m_pEventLogger)
+    {
+        std::string event;
+        event = "{\"event\":\"running\", \"test\":\"syncBarrier\"}";
+        m_pEventLogger->send_event(event);
+    }
+
+    thread_driver.init(SCENARIO_SYNC_BARRIER_THREAD_COUNT);
+    //
+    Scenario_syncBarrier_A scenarioA;
+    scenarioA.set_event_logger(m_pEventLogger);
+    thread_driver.get_thread_wrapper(SCENARIO_SYNC_BARRIER_THREAD_A)->set_scenario(&scenarioA);
+    //
+    Scenario_syncBarrier_B scenarioB;
+    scenarioB.set_event_logger(m_pEventLogger);
+    thread_driver.get_thread_wrapper(SCENARIO_SYNC_BARRIER_THREAD_B)->set_scenario(&scenarioB);
+    //
+    Scenario_syncBarrier_C scenarioC;
+    scenarioC.set_event_logger(m_pEventLogger);
+    thread_driver.get_thread_wrapper(SCENARIO_SYNC_BARRIER_THREAD_C)->set_scenario(&scenarioC);
     //
     thread_driver.run();
 }

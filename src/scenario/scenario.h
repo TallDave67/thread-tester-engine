@@ -3,6 +3,8 @@
 
 #include <string>
 #include <mutex>
+#include <latch>
+#include <barrier>
 
 static const int SCENARIO_RUN_ABORT = -2;
 static const int SCENARIO_RUN_FAILURE = -1;
@@ -23,6 +25,9 @@ public:
 
     bool try_lock_with_timeout(std::timed_mutex & mtx, const char* name);
     void unlock(std::timed_mutex & mtx, const char* name);
+
+    void arrive_and_wait(std::latch & lat, const char* name);
+    void arrive_and_wait(std::barrier<void(*)(void) noexcept> & bar, const char* name);
 
 protected:
     virtual int do_run();

@@ -12,6 +12,8 @@ add_library(thread-tester-engine-src-scenario
     scenario.cpp
     scenario_lockOrderSame.cpp
     scenario_lockOrderInverted.cpp
+    scenario_syncBarrier.cpp
+    scenario_syncLatch.cpp
 )
 
 target_compile_options(thread-tester-engine-src-scenario PRIVATE
