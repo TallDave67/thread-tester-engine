@@ -9,6 +9,7 @@ public:
     EventLogger();
     
     void send_event(std::string & event);
+    std::string getCurrentTimestamp();
 };
 
 #endif

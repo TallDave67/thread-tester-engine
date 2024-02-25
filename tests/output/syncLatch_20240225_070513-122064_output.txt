@@ -1,0 +1,29 @@
+[2024-02-25 07:05:13::122064] {"event":"running", "test":"syncLatch"}
+[2024-02-25 07:05:13::123037] {"event":"thread running", "thread_wrapper":1, "thread":138673605572160}
+[2024-02-25 07:05:13::123144] {"event":"running", "scenario":"syncLatch_A"}
+[2024-02-25 07:05:13::123255] {"event":"thread running", "thread_wrapper":2, "thread":138673597179456}
+[2024-02-25 07:05:13::123358] {"event":"running", "scenario":"syncLatch_B"}
+[2024-02-25 07:05:13::123424] {"event":"thread running", "thread_wrapper":3, "thread":138673454569024}
+[2024-02-25 07:05:13::123524] {"event":"running", "scenario":"syncLatch_C"}
+[2024-02-25 07:05:13::650008] {"event":"long_loop", "scenario":"syncLatch_A"}
+[2024-02-25 07:05:13::650186] {"event":"arrive_and_wait", "scenario":"syncLatch_A", "latch":"latch1"}
+[2024-02-25 07:05:13::650271] {"event":"long_loop", "scenario":"syncLatch_B"}
+[2024-02-25 07:05:13::650425] {"event":"arrive_and_wait", "scenario":"syncLatch_B", "latch":"latch1"}
+[2024-02-25 07:05:13::650497] {"event":"long_loop", "scenario":"syncLatch_C"}
+[2024-02-25 07:05:13::650632] {"event":"arrive_and_wait", "scenario":"syncLatch_C", "latch":"latch1"}
+[2024-02-25 07:05:13::703625] {"event":"short_loop", "scenario":"syncLatch_B"}
+[2024-02-25 07:05:13::703735] {"event":"arrive_and_wait", "scenario":"syncLatch_B", "latch":"latch2"}
+[2024-02-25 07:05:13::703814] {"event":"short_loop", "scenario":"syncLatch_A"}
+[2024-02-25 07:05:13::703922] {"event":"arrive_and_wait", "scenario":"syncLatch_A", "latch":"latch2"}
+[2024-02-25 07:05:13::704019] {"event":"short_loop", "scenario":"syncLatch_C"}
+[2024-02-25 07:05:13::704092] {"event":"arrive_and_wait", "scenario":"syncLatch_C", "latch":"latch2"}
+[2024-02-25 07:05:13::704169] {"event":"scenario completed", "thread_wrapper":3, "thread":138673454569024, "duration_microseconds":580882}
+[2024-02-25 07:05:13::704236] {"event":"scenario completed", "thread_wrapper":2, "thread":138673597179456, "duration_microseconds":581361}
+[2024-02-25 07:05:13::704348] {"event":"scenario completed", "thread_wrapper":1, "thread":138673605572160, "duration_microseconds":581500}
+[2024-02-25 07:05:13::704596] {"event":"thread terminated", "thread_wrapper":1, "termination_state":"SUCCESS"}
+[2024-02-25 07:05:13::704673] {"event":"thread terminated", "thread_wrapper":2, "termination_state":"SUCCESS"}
+[2024-02-25 07:05:13::704705] {"event":"thread terminated", "thread_wrapper":3, "termination_state":"SUCCESS"}
+[2024-02-25 07:05:13::704734] {"event":"destroy std::thread", "thread_wrapper":1}
+[2024-02-25 07:05:13::704761] {"event":"destroy std::thread", "thread_wrapper":2}
+[2024-02-25 07:05:13::704785] {"event":"destroy std::thread", "thread_wrapper":3}
+

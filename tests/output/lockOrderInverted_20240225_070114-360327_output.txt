@@ -1,0 +1,22 @@
+[2024-02-25 07:01:14::360327] {"event":"running", "test":"lockOrderInverted"}
+[2024-02-25 07:01:14::360601] {"event":"thread running", "thread_wrapper":1, "thread":137605463144000}
+[2024-02-25 07:01:14::360633] {"event":"running", "scenario":"lockOrderInverted_A"}
+[2024-02-25 07:01:14::360647] {"event":"acquired lock", "scenario":"lockOrderInverted_A", "mutex":"mutex1"}
+[2024-02-25 07:01:14::360672] {"event":"thread running", "thread_wrapper":2, "thread":137605454751296}
+[2024-02-25 07:01:14::360709] {"event":"running", "scenario":"lockOrderInverted_B"}
+[2024-02-25 07:01:14::360721] {"event":"acquired lock", "scenario":"lockOrderInverted_B", "mutex":"mutex2"}
+[2024-02-25 07:01:14::413572] {"event":"short_loop", "scenario":"lockOrderInverted_B"}
+[2024-02-25 07:01:14::892946] {"event":"long_loop", "scenario":"lockOrderInverted_A"}
+[2024-02-25 07:01:19::414038] {"event":"unable to acquire lock", "scenario":"lockOrderInverted_B", "mutex":"mutex1", "timeout_microseconds":5000000}
+[2024-02-25 07:01:19::414111] {"event":"released lock", "scenario":"lockOrderInverted_B", "mutex":"mutex2"}
+[2024-02-25 07:01:19::414144] {"event":"scenario completed", "thread_wrapper":2, "thread":137605454751296, "duration_microseconds":5053572}
+[2024-02-25 07:01:19::414197] {"event":"acquired lock", "scenario":"lockOrderInverted_A", "mutex":"mutex2"}
+[2024-02-25 07:01:19::414254] {"event":"released lock", "scenario":"lockOrderInverted_A", "mutex":"mutex1"}
+[2024-02-25 07:01:19::466939] {"event":"short_loop", "scenario":"lockOrderInverted_A"}
+[2024-02-25 07:01:19::467015] {"event":"released lock", "scenario":"lockOrderInverted_A", "mutex":"mutex2"}
+[2024-02-25 07:01:19::467040] {"event":"scenario completed", "thread_wrapper":1, "thread":137605463144000, "duration_microseconds":5106508}
+[2024-02-25 07:01:19::467177] {"event":"thread terminated", "thread_wrapper":1, "termination_state":"SUCCESS"}
+[2024-02-25 07:01:19::467227] {"event":"thread terminated", "thread_wrapper":2, "termination_state":"ABORT"}
+[2024-02-25 07:01:19::467249] {"event":"destroy std::thread", "thread_wrapper":1}
+[2024-02-25 07:01:19::467267] {"event":"destroy std::thread", "thread_wrapper":2}
+
