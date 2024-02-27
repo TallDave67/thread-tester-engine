@@ -1,0 +1,40 @@
+[2024-02-27 08:22:05::273425] {"event":"running", "object":"test", "test":"syncLatch"}
+[2024-02-27 08:22:05::273749] {"event":"run scenario", "object":"thread_wrapper", "thread_wrapper":2, "thread":128537101067840, "scenario":"syncLatch_B"}
+[2024-02-27 08:22:05::273812] {"event":"start", "object":"scenario", "scenario":"syncLatch_B", "duration_microseconds":0}
+[2024-02-27 08:22:05::273832] {"event":"run scenario", "object":"thread_wrapper", "thread_wrapper":1, "thread":128537109460544, "scenario":"syncLatch_A"}
+[2024-02-27 08:22:05::273878] {"event":"start", "object":"scenario", "scenario":"syncLatch_A", "duration_microseconds":0}
+[2024-02-27 08:22:05::273899] {"event":"start long_loop", "object":"scenario", "scenario":"syncLatch_A", "duration_microseconds":21}
+[2024-02-27 08:22:05::273920] {"event":"run scenario", "object":"thread_wrapper", "thread_wrapper":3, "thread":128537092675136, "scenario":"syncLatch_C"}
+[2024-02-27 08:22:05::273977] {"event":"start", "object":"scenario", "scenario":"syncLatch_C", "duration_microseconds":0}
+[2024-02-27 08:22:05::273998] {"event":"start long_loop", "object":"scenario", "scenario":"syncLatch_C", "duration_microseconds":22}
+[2024-02-27 08:22:05::274017] {"event":"start long_loop", "object":"scenario", "scenario":"syncLatch_B", "duration_microseconds":21}
+[2024-02-27 08:22:05::801154] {"event":"finish long_loop", "object":"scenario", "scenario":"syncLatch_B", "duration_microseconds":527330}
+[2024-02-27 08:22:05::801346] {"event":"latch arrive_and_wait", "object":"scenario", "scenario":"syncLatch_B", "latch":"latch1", "duration_microseconds":527530}
+[2024-02-27 08:22:05::801465] {"event":"finish long_loop", "object":"scenario", "scenario":"syncLatch_A", "duration_microseconds":527264}
+[2024-02-27 08:22:05::801612] {"event":"latch arrive_and_wait", "object":"scenario", "scenario":"syncLatch_A", "latch":"latch1", "duration_microseconds":527728}
+[2024-02-27 08:22:05::801755] {"event":"finish long_loop", "object":"scenario", "scenario":"syncLatch_C", "duration_microseconds":527166}
+[2024-02-27 08:22:05::801855] {"event":"latch arrive_and_wait", "object":"scenario", "scenario":"syncLatch_C", "latch":"latch1", "duration_microseconds":527877}
+[2024-02-27 08:22:05::801950] {"event":"latch done waiting", "object":"scenario", "scenario":"syncLatch_C", "latch":"latch1", "duration_microseconds":527969}
+[2024-02-27 08:22:05::802031] {"event":"latch done waiting", "object":"scenario", "scenario":"syncLatch_B", "latch":"latch1", "duration_microseconds":528212}
+[2024-02-27 08:22:05::802138] {"event":"start short_loop", "object":"scenario", "scenario":"syncLatch_B", "duration_microseconds":528326}
+[2024-02-27 08:22:05::802210] {"event":"start short_loop", "object":"scenario", "scenario":"syncLatch_C", "duration_microseconds":528065}
+[2024-02-27 08:22:05::802360] {"event":"latch done waiting", "object":"scenario", "scenario":"syncLatch_A", "latch":"latch1", "duration_microseconds":528101}
+[2024-02-27 08:22:05::802456] {"event":"start short_loop", "object":"scenario", "scenario":"syncLatch_A", "duration_microseconds":528576}
+[2024-02-27 08:22:05::855127] {"event":"finish short_loop", "object":"scenario", "scenario":"syncLatch_B", "duration_microseconds":581304}
+[2024-02-27 08:22:05::855297] {"event":"latch arrive_and_wait", "object":"scenario", "scenario":"syncLatch_B", "latch":"latch2", "duration_microseconds":581484}
+[2024-02-27 08:22:05::855381] {"event":"finish short_loop", "object":"scenario", "scenario":"syncLatch_C", "duration_microseconds":581140}
+[2024-02-27 08:22:05::855540] {"event":"latch arrive_and_wait", "object":"scenario", "scenario":"syncLatch_C", "latch":"latch2", "duration_microseconds":581557}
+[2024-02-27 08:22:05::855678] {"event":"finish short_loop", "object":"scenario", "scenario":"syncLatch_A", "duration_microseconds":581239}
+[2024-02-27 08:22:05::855788] {"event":"latch arrive_and_wait", "object":"scenario", "scenario":"syncLatch_A", "latch":"latch2", "duration_microseconds":581908}
+[2024-02-27 08:22:05::855867] {"event":"latch done waiting", "object":"scenario", "scenario":"syncLatch_A", "latch":"latch2", "duration_microseconds":581984}
+[2024-02-27 08:22:05::856023] {"event":"finish", "object":"scenario", "scenario":"syncLatch_A, "duration_microseconds":582126}
+[2024-02-27 08:22:05::856191] {"event":"latch done waiting", "object":"scenario", "scenario":"syncLatch_B", "latch":"latch2", "duration_microseconds":582142}
+[2024-02-27 08:22:05::856329] {"event":"finish", "object":"scenario", "scenario":"syncLatch_B, "duration_microseconds":582509}
+[2024-02-27 08:22:05::856399] {"event":"latch done waiting", "object":"scenario", "scenario":"syncLatch_C", "latch":"latch2", "duration_microseconds":581921}
+[2024-02-27 08:22:05::856534] {"event":"finish", "object":"scenario", "scenario":"syncLatch_C, "duration_microseconds":582550}
+[2024-02-27 08:22:05::856617] {"event":"thread terminated", "object":"thread_wrapper", "thread_wrapper":1, "termination_state":"SUCCESS"}
+[2024-02-27 08:22:05::856759] {"event":"thread terminated", "object":"thread_wrapper", "thread_wrapper":2, "termination_state":"SUCCESS"}
+[2024-02-27 08:22:05::856814] {"event":"thread terminated", "object":"thread_wrapper", "thread_wrapper":3, "termination_state":"SUCCESS"}
+[2024-02-27 08:22:05::856859] {"event":"destroy std::thread", "object":"thread_wrapper", "thread_wrapper":1}
+[2024-02-27 08:22:05::856901] {"event":"destroy std::thread", "object":"thread_wrapper", "thread_wrapper":2}
+[2024-02-27 08:22:05::856941] {"event":"destroy std::thread", "object":"thread_wrapper", "thread_wrapper":3}

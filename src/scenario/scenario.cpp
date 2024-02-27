@@ -114,6 +114,14 @@ void Scenario::arrive_and_wait(std::latch & lat, const char* name)
     }
 
     lat.arrive_and_wait();
+
+    if(m_pEventLogger)
+    {
+        std::stringstream ss;
+        ss << "{\"event\":\"latch done waiting\", \"object\":\"scenario\", \"scenario\":\"" << get_id() << "\", \"latch\":\"" << name << "\", \"duration_microseconds\":" << timer.duration_in_microseconds() << "}";
+        std::string event = ss.str();
+        m_pEventLogger->send_event(event);
+    }
 }
 
 void Scenario::arrive_and_wait(std::barrier<void(*)(void) noexcept> & bar, const char* name)
@@ -127,6 +135,14 @@ void Scenario::arrive_and_wait(std::barrier<void(*)(void) noexcept> & bar, const
     }
 
     bar.arrive_and_wait();
+
+    if(m_pEventLogger)
+    {
+        std::stringstream ss;
+        ss << "{\"event\":\"barrier done waiting\", \"object\":\"scenario\", \"scenario\":\"" << get_id() << "\", \"barrier\":\"" << name << "\", \"duration_microseconds\":" << timer.duration_in_microseconds() << "}";
+        std::string event = ss.str();
+        m_pEventLogger->send_event(event);
+    }
 }
 
 int Scenario::do_run()
