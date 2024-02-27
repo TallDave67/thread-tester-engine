@@ -28,15 +28,34 @@ std::string & Scenario::get_id()
 
 int Scenario::run()
 {
+    timer.start();
+
     if(m_pEventLogger)
     {
         std::stringstream ss;
-        ss << "{\"event\":\"running\", \"scenario\":\"" << get_id() << "\"}";
+        ss << "{\"event\":\"start\", \"object\":\"scenario\", \"scenario\":\"" << get_id() << "\", \"duration_microseconds\":0}";
         std::string event = ss.str();
         m_pEventLogger->send_event(event);
     }
 
-    return do_run();
+    int ret = do_run();
+
+    timer.stop();
+
+    if(m_pEventLogger)
+    {
+        std::stringstream ss;
+        ss << "{\"event\":\"finish\", \"object\":\"scenario\", \"scenario\":\"" << get_id() <<  ", \"duration_microseconds\":" << timer.duration_in_microseconds() << "}";
+        std::string event = ss.str();
+        m_pEventLogger->send_event(event);
+    }
+
+    return ret;
+}
+
+long long Scenario::duration_in_microseconds()
+{
+    return timer.duration_in_microseconds();
 }
 
 bool Scenario::try_lock_with_timeout(std::timed_mutex & mtx, const char* name)
@@ -48,7 +67,7 @@ bool Scenario::try_lock_with_timeout(std::timed_mutex & mtx, const char* name)
         if(m_pEventLogger)
         {
             std::stringstream ss;
-            ss << "{\"event\":\"acquired lock\", \"scenario\":\"" << get_id() << "\", \"mutex\":\"" << name << "\"}";
+            ss << "{\"event\":\"acquired lock\", \"object\":\"scenario\", \"scenario\":\"" << get_id() << "\", \"mutex\":\"" << name << "\", \"duration_microseconds\":" << timer.duration_in_microseconds() << "}";
             std::string event = ss.str();
             m_pEventLogger->send_event(event);
         }
@@ -61,7 +80,7 @@ bool Scenario::try_lock_with_timeout(std::timed_mutex & mtx, const char* name)
         if(m_pEventLogger)
         {
             std::stringstream ss;
-            ss << "{\"event\":\"unable to acquire lock\", \"scenario\":\"" << get_id() << "\", \"mutex\":\"" << name << "\", \"timeout_microseconds\":" << THREAD_TRY_LOCK_TIMEOUT.count() << "}";
+            ss << "{\"event\":\"unable to acquire lock\", \"object\":\"scenario\", \"scenario\":\"" << get_id() << "\", \"mutex\":\"" << name << "\", \"duration_microseconds\":" << timer.duration_in_microseconds() << "}";
             std::string event = ss.str();
             m_pEventLogger->send_event(event);
         }
@@ -78,7 +97,7 @@ void Scenario::unlock(std::timed_mutex & mtx, const char* name)
     if(m_pEventLogger)
     {
         std::stringstream ss;
-        ss << "{\"event\":\"released lock\", \"scenario\":\"" << get_id() << "\", \"mutex\":\"" << name << "\"}";
+        ss << "{\"event\":\"released lock\", \"object\":\"scenario\", \"scenario\":\"" << get_id() << "\", \"mutex\":\"" << name << "\", \"duration_microseconds\":" << timer.duration_in_microseconds() << "}";
         std::string event = ss.str();
         m_pEventLogger->send_event(event);
     }
@@ -89,7 +108,7 @@ void Scenario::arrive_and_wait(std::latch & lat, const char* name)
     if(m_pEventLogger)
     {
         std::stringstream ss;
-        ss << "{\"event\":\"arrive_and_wait\", \"scenario\":\"" << get_id() << "\", \"latch\":\"" << name << "\"}";
+        ss << "{\"event\":\"latch arrive_and_wait\", \"object\":\"scenario\", \"scenario\":\"" << get_id() << "\", \"latch\":\"" << name << "\", \"duration_microseconds\":" << timer.duration_in_microseconds() << "}";
         std::string event = ss.str();
         m_pEventLogger->send_event(event);
     }
@@ -102,7 +121,7 @@ void Scenario::arrive_and_wait(std::barrier<void(*)(void) noexcept> & bar, const
     if(m_pEventLogger)
     {
         std::stringstream ss;
-        ss << "{\"event\":\"arrive_and_wait\", \"scenario\":\"" << get_id() << "\", \"barrier\":\"" << name << "\"}";
+        ss << "{\"event\":\"barrier arrive_and_wait\", \"object\":\"scenario\", \"scenario\":\"" << get_id() << "\", \"barrier\":\"" << name << "\", \"duration_microseconds\":" << timer.duration_in_microseconds() << "}";
         std::string event = ss.str();
         m_pEventLogger->send_event(event);
     }
@@ -117,6 +136,14 @@ int Scenario::do_run()
 
 void Scenario::short_loop()
 {
+    if(m_pEventLogger)
+    {
+        std::stringstream ss;
+        ss << "{\"event\":\"start short_loop\", \"object\":\"scenario\", \"scenario\":\"" << get_id() << "\", \"duration_microseconds\":" << timer.duration_in_microseconds() << "}";
+        std::string event = ss.str();
+        m_pEventLogger->send_event(event);
+    }
+
     for(int i = 0; i < NUM_SHORT_LOOP_ITERATIONS; i++)
     {
         std::this_thread::sleep_for(LOOP_ITERATION_DELAY);
@@ -125,7 +152,7 @@ void Scenario::short_loop()
     if(m_pEventLogger)
     {
         std::stringstream ss;
-        ss << "{\"event\":\"short_loop\", \"scenario\":\"" << get_id() << "\"}";
+        ss << "{\"event\":\"finish short_loop\", \"object\":\"scenario\", \"scenario\":\"" << get_id() << "\", \"duration_microseconds\":" << timer.duration_in_microseconds() << "}";
         std::string event = ss.str();
         m_pEventLogger->send_event(event);
     }
@@ -133,6 +160,14 @@ void Scenario::short_loop()
 
 void Scenario::long_loop()
 {
+    if(m_pEventLogger)
+    {
+        std::stringstream ss;
+        ss << "{\"event\":\"start long_loop\", \"object\":\"scenario\", \"scenario\":\"" << get_id() << "\", \"duration_microseconds\":" << timer.duration_in_microseconds() << "}";
+        std::string event = ss.str();
+        m_pEventLogger->send_event(event);
+    }
+
     for(int i = 0; i < NUM_LONG_LOOP_ITERATIONS; i++)
     {
         std::this_thread::sleep_for(LOOP_ITERATION_DELAY);
@@ -141,7 +176,7 @@ void Scenario::long_loop()
     if(m_pEventLogger)
     {
         std::stringstream ss;
-        ss << "{\"event\":\"long_loop\", \"scenario\":\"" << get_id() << "\"}";
+        ss << "{\"event\":\"finish long_loop\", \"object\":\"scenario\", \"scenario\":\"" << get_id() << "\", \"duration_microseconds\":" << timer.duration_in_microseconds() << "}";
         std::string event = ss.str();
         m_pEventLogger->send_event(event);
     }

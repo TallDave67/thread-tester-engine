@@ -2,7 +2,6 @@
 #define _THREAD_H_
 
 #include "constants.h"
-#include "timer.h"
 #include <functional>
 #include <thread>
 #include <memory>
@@ -38,7 +37,6 @@ public:
 
     int get_termination_state();
     std::string get_termination_state_as_string();
-    long long duration_in_microseconds();
 
     int get_wrapper_id();
     std::thread::id get_id();
@@ -57,8 +55,6 @@ private:
     std::unique_ptr<std::thread> thread_ptr;
     int termination_state;
     std::string termination_state_as_string;
-    //
-    Timer timer;
 };
 
 #endif

@@ -1,6 +1,7 @@
 #ifndef _SCENARIO_H_
 #define _SCENARIO_H_
 
+#include "timer.h"
 #include <string>
 #include <mutex>
 #include <latch>
@@ -22,7 +23,8 @@ public:
     void set_event_logger(EventLogger *pEventLogger);
     std::string & get_id();
     int run();
-
+    long long duration_in_microseconds();
+    
     bool try_lock_with_timeout(std::timed_mutex & mtx, const char* name);
     void unlock(std::timed_mutex & mtx, const char* name);
 
@@ -37,6 +39,8 @@ protected:
 protected:
     EventLogger *m_pEventLogger;
     std::string id;
+    //
+    Timer timer;
 };
 
 #endif

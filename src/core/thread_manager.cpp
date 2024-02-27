@@ -28,7 +28,7 @@ void ThreadManager::runTest_lockOrderSame()
     if(m_pEventLogger)
     {
         std::string event;
-        event = "{\"event\":\"running\", \"test\":\"lockOrderSame\"}";
+        event = "{\"event\":\"running\", \"object\":\"test\", \"test\":\"lockOrderSame\"}";
         m_pEventLogger->send_event(event);
     }
 
@@ -50,7 +50,7 @@ void ThreadManager::runTest_lockOrderInverted()
     if(m_pEventLogger)
     {
         std::string event;
-        event = "{\"event\":\"running\", \"test\":\"lockOrderInverted\"}";
+        event = "{\"event\":\"running\", \"object\":\"test\", \"test\":\"lockOrderInverted\"}";
         m_pEventLogger->send_event(event);
     }
 
@@ -72,7 +72,7 @@ void ThreadManager::runTest_syncLatch()
     if(m_pEventLogger)
     {
         std::string event;
-        event = "{\"event\":\"running\", \"test\":\"syncLatch\"}";
+        event = "{\"event\":\"running\", \"object\":\"test\", \"test\":\"syncLatch\"}";
         m_pEventLogger->send_event(event);
     }
 
@@ -98,7 +98,7 @@ void ThreadManager::runTest_syncBarrier()
     if(m_pEventLogger)
     {
         std::string event;
-        event = "{\"event\":\"running\", \"test\":\"syncBarrier\"}";
+        event = "{\"event\":\"running\", \"object\":\"test\", \"test\":\"syncBarrier\"}";
         m_pEventLogger->send_event(event);
     }
 

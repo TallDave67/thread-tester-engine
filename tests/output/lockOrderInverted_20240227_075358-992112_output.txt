@@ -1,0 +1,24 @@
+[2024-02-27 07:53:58::992112] {"event":"running", "object":"test", "test":"lockOrderInverted"}
+[2024-02-27 07:53:58::992391] {"event":"run scenario", "object":"thread_wrapper", "thread_wrapper":1, "thread":131480562955840, "scenario":"lockOrderInverted_A"}
+[2024-02-27 07:53:58::992422] {"event":"start", "object":"scenario", "scenario":"lockOrderInverted_A", "duration_microseconds":0}
+[2024-02-27 07:53:58::992442] {"event":"acquired lock", "object":"scenario", "scenario":"lockOrderInverted_A", "mutex":"mutex1", "duration_microseconds":16}
+[2024-02-27 07:53:58::992455] {"event":"start long_loop", "object":"scenario", "scenario":"lockOrderInverted_A", "duration_microseconds":34}
+[2024-02-27 07:53:58::992466] {"event":"run scenario", "object":"thread_wrapper", "thread_wrapper":2, "thread":131480554563136, "scenario":"lockOrderInverted_B"}
+[2024-02-27 07:53:58::992499] {"event":"start", "object":"scenario", "scenario":"lockOrderInverted_B", "duration_microseconds":0}
+[2024-02-27 07:53:58::992512] {"event":"acquired lock", "object":"scenario", "scenario":"lockOrderInverted_B", "mutex":"mutex2", "duration_microseconds":13}
+[2024-02-27 07:53:58::992525] {"event":"start short_loop", "object":"scenario", "scenario":"lockOrderInverted_B", "duration_microseconds":27}
+[2024-02-27 07:53:59::044406] {"event":"finish short_loop", "object":"scenario", "scenario":"lockOrderInverted_B", "duration_microseconds":51896}
+[2024-02-27 07:53:59::522662] {"event":"finish long_loop", "object":"scenario", "scenario":"lockOrderInverted_A", "duration_microseconds":530229}
+[2024-02-27 07:54:04::044897] {"event":"unable to acquire lock", "object":"scenario", "scenario":"lockOrderInverted_B", "mutex":"mutex1", "duration_microseconds":5052392}
+[2024-02-27 07:54:04::044958] {"event":"released lock", "object":"scenario", "scenario":"lockOrderInverted_B", "mutex":"mutex2", "duration_microseconds":5052459}
+[2024-02-27 07:54:04::044975] {"event":"finish", "object":"scenario", "scenario":"lockOrderInverted_B, "duration_microseconds":5052475}
+[2024-02-27 07:54:04::045041] {"event":"acquired lock", "object":"scenario", "scenario":"lockOrderInverted_A", "mutex":"mutex2", "duration_microseconds":5052616}
+[2024-02-27 07:54:04::045086] {"event":"released lock", "object":"scenario", "scenario":"lockOrderInverted_A", "mutex":"mutex1", "duration_microseconds":5052664}
+[2024-02-27 07:54:04::045102] {"event":"start short_loop", "object":"scenario", "scenario":"lockOrderInverted_A", "duration_microseconds":5052681}
+[2024-02-27 07:54:04::098675] {"event":"finish short_loop", "object":"scenario", "scenario":"lockOrderInverted_A", "duration_microseconds":5106241}
+[2024-02-27 07:54:04::098795] {"event":"released lock", "object":"scenario", "scenario":"lockOrderInverted_A", "mutex":"mutex2", "duration_microseconds":5106371}
+[2024-02-27 07:54:04::098831] {"event":"finish", "object":"scenario", "scenario":"lockOrderInverted_A, "duration_microseconds":5106405}
+[2024-02-27 07:54:04::099045] {"event":"thread terminated", "object":"thread_wrapper", "thread_wrapper":1, "termination_state":"SUCCESS"}
+[2024-02-27 07:54:04::099131] {"event":"thread terminated", "object":"thread_wrapper", "thread_wrapper":2, "termination_state":"ABORT"}
+[2024-02-27 07:54:04::099170] {"event":"destroy std::thread", "object":"thread_wrapper", "thread_wrapper":1}
+[2024-02-27 07:54:04::099200] {"event":"destroy std::thread", "object":"thread_wrapper", "thread_wrapper":2}
