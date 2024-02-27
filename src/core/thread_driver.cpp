@@ -51,7 +51,7 @@ void ThreadDriver::run()
         if(m_pEventLogger)
         {
             std::stringstream ss;
-            ss << "{\"event_type\":\"run\", \"event\":\"start\", \"object\":\"thread_wrapper\", \"id\":" << t.get_wrapper_id() << ", \"}";        
+            ss << "{\"event_type\":\"run\", \"event\":\"start\", \"object\":\"thread_wrapper\", \"id\":" << t.get_wrapper_id() << "}";        
             std::string event = ss.str();
             m_pEventLogger->send_event(event);
         }
