@@ -179,7 +179,7 @@ void Scenario::short_loop()
     if(m_pEventLogger)
     {
         std::stringstream ss;
-        ss << "{\"event_type\":\"short_loop\", \"event\":\"start\", \"object\":\"scenario\", \"scenario\":\"" << get_id() << "\", \"duration\":" << timer.duration_in_microseconds() << "}";
+        ss << "{\"event_type\":\"short_loop\", \"event\":\"start\", \"object\":\"scenario\", \"id\":\"" << get_id() << "\", \"duration\":" << timer.duration_in_microseconds() << "}";
         std::string event = ss.str();
         m_pEventLogger->send_event(event);
     }
@@ -192,7 +192,7 @@ void Scenario::short_loop()
     if(m_pEventLogger)
     {
         std::stringstream ss;
-        ss << "{\"event_type\":\"short_loop\", \"event\":\"finish\", \"object\":\"scenario\", \"scenario\":\"" << get_id() << "\", \"duration\":" << timer.duration_in_microseconds() << "}";
+        ss << "{\"event_type\":\"short_loop\", \"event\":\"finish\", \"object\":\"scenario\", \"id\":\"" << get_id() << "\", \"duration\":" << timer.duration_in_microseconds() << "}";
         std::string event = ss.str();
         m_pEventLogger->send_event(event);
     }
@@ -203,7 +203,7 @@ void Scenario::long_loop()
     if(m_pEventLogger)
     {
         std::stringstream ss;
-        ss << "{\"event_type\":\"long_loop\", \"event\":\"start\", \"object\":\"scenario\", \"scenario\":\"" << get_id() << "\", \"duration\":" << timer.duration_in_microseconds() << "}";
+        ss << "{\"event_type\":\"long_loop\", \"event\":\"start\", \"object\":\"scenario\", \"id\":\"" << get_id() << "\", \"duration\":" << timer.duration_in_microseconds() << "}";
         std::string event = ss.str();
         m_pEventLogger->send_event(event);
     }
@@ -216,7 +216,7 @@ void Scenario::long_loop()
     if(m_pEventLogger)
     {
         std::stringstream ss;
-        ss << "{\"event_type\":\"long_loop\", \"event\":\"finish\", \"object\":\"scenario\", \"scenario\":\"" << get_id() << "\", \"duration\":" << timer.duration_in_microseconds() << "}";
+        ss << "{\"event_type\":\"long_loop\", \"event\":\"finish\", \"object\":\"scenario\", \"id\":\"" << get_id() << "\", \"duration\":" << timer.duration_in_microseconds() << "}";
         std::string event = ss.str();
         m_pEventLogger->send_event(event);
     }

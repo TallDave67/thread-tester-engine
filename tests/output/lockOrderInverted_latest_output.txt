@@ -1,30 +1,30 @@
-[2024-02-27 11:59:38::257410] {"event_type":"run", "event":"start", "object":"test", "id":"lockOrderInverted"}
-[2024-02-27 11:59:38::257587] {"event_type":"run", "event":"start", "object":"thread_wrapper", "id":1}
-[2024-02-27 11:59:38::257682] {"event_type":"run", "event":"start", "object":"thread_wrapper", "id":2}
-[2024-02-27 11:59:38::257722] {"event_type":"run", "event":"start", "object":"scenario", "id":"lockOrderInverted_A", "duration":0}
-[2024-02-27 11:59:38::257770] {"event_type":"run", "event":"start", "object":"scenario", "id":"lockOrderInverted_B", "duration":0}
-[2024-02-27 11:59:38::257812] {"event_type":"acquire_lock", "event":"start", "object":"mutex", "id":"mutex2", "parent_object":"scenario", "parent_id":"lockOrderInverted_B", "duration":83}
-[2024-02-27 11:59:38::257832] {"event_type":"acquire_lock", "event":"finish_success", "object":"mutex", "id":"mutex2", "parent_object":"scenario", "parent_id":"lockOrderInverted_B", "duration":102}
-[2024-02-27 11:59:38::257846] {"event_type":"use_lock", "event":"start", "object":"mutex", "id":"mutex2", "parent_object":"scenario", "parent_id":"lockOrderInverted_B", "duration":117}
-[2024-02-27 11:59:38::257862] {"event_type":"short_loop", "event":"start", "object":"scenario", "scenario":"lockOrderInverted_B", "duration":133}
-[2024-02-27 11:59:38::257887] {"event_type":"acquire_lock", "event":"start", "object":"mutex", "id":"mutex1", "parent_object":"scenario", "parent_id":"lockOrderInverted_A", "duration":149}
-[2024-02-27 11:59:38::257926] {"event_type":"acquire_lock", "event":"finish_success", "object":"mutex", "id":"mutex1", "parent_object":"scenario", "parent_id":"lockOrderInverted_A", "duration":306}
-[2024-02-27 11:59:38::257943] {"event_type":"use_lock", "event":"start", "object":"mutex", "id":"mutex1", "parent_object":"scenario", "parent_id":"lockOrderInverted_A", "duration":323}
-[2024-02-27 11:59:38::257957] {"event_type":"long_loop", "event":"start", "object":"scenario", "scenario":"lockOrderInverted_A", "duration":338}
-[2024-02-27 11:59:38::310404] {"event_type":"short_loop", "event":"finish", "object":"scenario", "scenario":"lockOrderInverted_B", "duration":52664}
-[2024-02-27 11:59:38::310565] {"event_type":"acquire_lock", "event":"start", "object":"mutex", "id":"mutex1", "parent_object":"scenario", "parent_id":"lockOrderInverted_B", "duration":52833}
-[2024-02-27 11:59:38::785708] {"event_type":"long_loop", "event":"finish", "object":"scenario", "scenario":"lockOrderInverted_A", "duration":528036}
-[2024-02-27 11:59:38::785903] {"event_type":"acquire_lock", "event":"start", "object":"mutex", "id":"mutex2", "parent_object":"scenario", "parent_id":"lockOrderInverted_A", "duration":528281}
-[2024-02-27 11:59:43::310949] {"event_type":"acquire_lock", "event":"finish_failure", "object":"mutex", "id":"mutex1", "parent_object":"scenario", "parent_id":"lockOrderInverted_B", "duration":5053207}
-[2024-02-27 11:59:43::311176] {"event_type":"use_lock", "event":"finish", "object":"mutex", "id":"mutex2", "parent_object":"scenario", "parent_id":"lockOrderInverted_B", "duration":5053441}
-[2024-02-27 11:59:43::311306] {"event_type":"run", "event":"finish", "object":"scenario", "id":"lockOrderInverted_B", "duration":5053556}
-[2024-02-27 11:59:43::311456] {"event_type":"acquire_lock", "event":"finish_success", "object":"mutex", "id":"mutex2", "parent_object":"scenario", "parent_id":"lockOrderInverted_A", "duration":5053602}
-[2024-02-27 11:59:43::311661] {"event_type":"use_lock", "event":"start", "object":"mutex", "id":"mutex2", "parent_object":"scenario", "parent_id":"lockOrderInverted_A", "duration":5054032}
-[2024-02-27 11:59:43::311764] {"event_type":"use_lock", "event":"finish", "object":"mutex", "id":"mutex1", "parent_object":"scenario", "parent_id":"lockOrderInverted_A", "duration":5054141}
-[2024-02-27 11:59:43::311826] {"event_type":"short_loop", "event":"start", "object":"scenario", "scenario":"lockOrderInverted_A", "duration":5054205}
-[2024-02-27 11:59:43::364788] {"event_type":"short_loop", "event":"finish", "object":"scenario", "scenario":"lockOrderInverted_A", "duration":5107155}
-[2024-02-27 11:59:43::365019] {"event_type":"use_lock", "event":"finish", "object":"mutex", "id":"mutex2", "parent_object":"scenario", "parent_id":"lockOrderInverted_A", "duration":5107396}
-[2024-02-27 11:59:43::365080] {"event_type":"run", "event":"finish", "object":"scenario", "id":"lockOrderInverted_A", "duration":5107456}
-[2024-02-27 11:59:43::365314] {"event_type":"run", "event":"finish", "object":"thread_wrapper", "id":1, "state":"SUCCESS"}
-[2024-02-27 11:59:43::365428] {"event_type":"run", "event":"finish", "object":"thread_wrapper", "id":2, "state":"ABORT"}
-[2024-02-27 11:59:43::365478] {"event_type":"run", "event":"finish", "object":"test", "id":"lockOrderInverted"}
+[2024-02-27 13:14:40::749106] {"event_type":"run", "event":"start", "object":"test", "id":"lockOrderInverted"}
+[2024-02-27 13:14:40::749283] {"event_type":"run", "event":"start", "object":"thread_wrapper", "id":1}
+[2024-02-27 13:14:40::749354] {"event_type":"run", "event":"start", "object":"thread_wrapper", "id":2}
+[2024-02-27 13:14:40::749377] {"event_type":"run", "event":"start", "object":"scenario", "id":"lockOrderInverted_A", "duration":0}
+[2024-02-27 13:14:40::749419] {"event_type":"acquire_lock", "event":"start", "object":"mutex", "id":"mutex1", "parent_object":"scenario", "parent_id":"lockOrderInverted_A", "duration":88}
+[2024-02-27 13:14:40::749439] {"event_type":"acquire_lock", "event":"finish_success", "object":"mutex", "id":"mutex1", "parent_object":"scenario", "parent_id":"lockOrderInverted_A", "duration":111}
+[2024-02-27 13:14:40::749456] {"event_type":"use_lock", "event":"start", "object":"mutex", "id":"mutex1", "parent_object":"scenario", "parent_id":"lockOrderInverted_A", "duration":129}
+[2024-02-27 13:14:40::749473] {"event_type":"long_loop", "event":"start", "object":"scenario", "id":"lockOrderInverted_A", "duration":145}
+[2024-02-27 13:14:40::749542] {"event_type":"run", "event":"start", "object":"scenario", "id":"lockOrderInverted_B", "duration":0}
+[2024-02-27 13:14:40::749587] {"event_type":"acquire_lock", "event":"start", "object":"mutex", "id":"mutex2", "parent_object":"scenario", "parent_id":"lockOrderInverted_B", "duration":183}
+[2024-02-27 13:14:40::749606] {"event_type":"acquire_lock", "event":"finish_success", "object":"mutex", "id":"mutex2", "parent_object":"scenario", "parent_id":"lockOrderInverted_B", "duration":203}
+[2024-02-27 13:14:40::749620] {"event_type":"use_lock", "event":"start", "object":"mutex", "id":"mutex2", "parent_object":"scenario", "parent_id":"lockOrderInverted_B", "duration":217}
+[2024-02-27 13:14:40::749634] {"event_type":"short_loop", "event":"start", "object":"scenario", "id":"lockOrderInverted_B", "duration":231}
+[2024-02-27 13:14:40::802296] {"event_type":"short_loop", "event":"finish", "object":"scenario", "id":"lockOrderInverted_B", "duration":52881}
+[2024-02-27 13:14:40::802466] {"event_type":"acquire_lock", "event":"start", "object":"mutex", "id":"mutex1", "parent_object":"scenario", "parent_id":"lockOrderInverted_B", "duration":53061}
+[2024-02-27 13:14:41::277713] {"event_type":"long_loop", "event":"finish", "object":"scenario", "id":"lockOrderInverted_A", "duration":528374}
+[2024-02-27 13:14:41::277911] {"event_type":"acquire_lock", "event":"start", "object":"mutex", "id":"mutex2", "parent_object":"scenario", "parent_id":"lockOrderInverted_A", "duration":528581}
+[2024-02-27 13:14:45::803138] {"event_type":"acquire_lock", "event":"finish_failure", "object":"mutex", "id":"mutex1", "parent_object":"scenario", "parent_id":"lockOrderInverted_B", "duration":5053729}
+[2024-02-27 13:14:45::803230] {"event_type":"use_lock", "event":"finish", "object":"mutex", "id":"mutex2", "parent_object":"scenario", "parent_id":"lockOrderInverted_B", "duration":5053826}
+[2024-02-27 13:14:45::803256] {"event_type":"run", "event":"finish", "object":"scenario", "id":"lockOrderInverted_B", "duration":5053851}
+[2024-02-27 13:14:45::803302] {"event_type":"acquire_lock", "event":"finish_success", "object":"mutex", "id":"mutex2", "parent_object":"scenario", "parent_id":"lockOrderInverted_A", "duration":5053971}
+[2024-02-27 13:14:45::803359] {"event_type":"use_lock", "event":"start", "object":"mutex", "id":"mutex2", "parent_object":"scenario", "parent_id":"lockOrderInverted_A", "duration":5054030}
+[2024-02-27 13:14:45::803391] {"event_type":"use_lock", "event":"finish", "object":"mutex", "id":"mutex1", "parent_object":"scenario", "parent_id":"lockOrderInverted_A", "duration":5054063}
+[2024-02-27 13:14:45::803418] {"event_type":"short_loop", "event":"start", "object":"scenario", "id":"lockOrderInverted_A", "duration":5054089}
+[2024-02-27 13:14:45::856380] {"event_type":"short_loop", "event":"finish", "object":"scenario", "id":"lockOrderInverted_A", "duration":5107040}
+[2024-02-27 13:14:45::856565] {"event_type":"use_lock", "event":"finish", "object":"mutex", "id":"mutex2", "parent_object":"scenario", "parent_id":"lockOrderInverted_A", "duration":5107235}
+[2024-02-27 13:14:45::856682] {"event_type":"run", "event":"finish", "object":"scenario", "id":"lockOrderInverted_A", "duration":5107347}
+[2024-02-27 13:14:45::856919] {"event_type":"run", "event":"finish", "object":"thread_wrapper", "id":1, "state":"SUCCESS"}
+[2024-02-27 13:14:45::857036] {"event_type":"run", "event":"finish", "object":"thread_wrapper", "id":2, "state":"ABORT"}
+[2024-02-27 13:14:45::857088] {"event_type":"run", "event":"finish", "object":"test", "id":"lockOrderInverted"}

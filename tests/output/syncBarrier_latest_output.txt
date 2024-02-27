@@ -1,38 +1,38 @@
-[2024-02-27 11:59:43::963138] {"event_type":"run", "event":"start", "object":"test", "id":"syncBarrier"}
-[2024-02-27 11:59:43::963449] {"event_type":"run", "event":"start", "object":"thread_wrapper", "id":1}
-[2024-02-27 11:59:43::963527] {"event_type":"run", "event":"start", "object":"thread_wrapper", "id":2}
-[2024-02-27 11:59:43::963566] {"event_type":"run", "event":"start", "object":"scenario", "id":"syncBarrier_A", "duration":0}
-[2024-02-27 11:59:43::963613] {"event_type":"long_loop", "event":"start", "object":"scenario", "scenario":"syncBarrier_A", "duration":121}
-[2024-02-27 11:59:43::963641] {"event_type":"run", "event":"start", "object":"thread_wrapper", "id":3}
-[2024-02-27 11:59:43::963714] {"event_type":"run", "event":"start", "object":"scenario", "id":"syncBarrier_B", "duration":0}
-[2024-02-27 11:59:43::963763] {"event_type":"long_loop", "event":"start", "object":"scenario", "scenario":"syncBarrier_B", "duration":188}
-[2024-02-27 11:59:43::963798] {"event_type":"run", "event":"start", "object":"scenario", "id":"syncBarrier_C", "duration":0}
-[2024-02-27 11:59:43::963844] {"event_type":"long_loop", "event":"start", "object":"scenario", "scenario":"syncBarrier_C", "duration":229}
-[2024-02-27 11:59:44::490971] {"event_type":"long_loop", "event":"finish", "object":"scenario", "scenario":"syncBarrier_B", "duration":527384}
-[2024-02-27 11:59:44::491181] {"event_type":"wait", "event":"start", "object":"barrier", "id":"barrier", "parent_object":"scenario", "parent_id":"syncBarrier_B", "duration":527602}
-[2024-02-27 11:59:44::491254] {"event_type":"long_loop", "event":"finish", "object":"scenario", "scenario":"syncBarrier_A", "duration":527471}
-[2024-02-27 11:59:44::491477] {"event_type":"wait", "event":"start", "object":"barrier", "id":"barrier", "parent_object":"scenario", "parent_id":"syncBarrier_A", "duration":527977}
-[2024-02-27 11:59:44::491671] {"event_type":"long_loop", "event":"finish", "object":"scenario", "scenario":"syncBarrier_C", "duration":527345}
-[2024-02-27 11:59:44::491804] {"event_type":"wait", "event":"start", "object":"barrier", "id":"barrier", "parent_object":"scenario", "parent_id":"syncBarrier_C", "duration":528185}
-[2024-02-27 11:59:44::491904] {"event_type":"wait", "event":"finish", "object":"barrier", "id":"barrier_reused", "parent_object":"scenario", "parent_id":"syncBarrier_C", "duration":528284}
-[2024-02-27 11:59:44::492002] {"event_type":"wait", "event":"finish", "object":"barrier", "id":"barrier_reused", "parent_object":"scenario", "parent_id":"syncBarrier_B", "duration":528417}
-[2024-02-27 11:59:44::492140] {"event_type":"short_loop", "event":"start", "object":"scenario", "scenario":"syncBarrier_B", "duration":528563}
-[2024-02-27 11:59:44::492216] {"event_type":"short_loop", "event":"start", "object":"scenario", "scenario":"syncBarrier_C", "duration":528399}
-[2024-02-27 11:59:44::492415] {"event_type":"wait", "event":"finish", "object":"barrier", "id":"barrier_reused", "parent_object":"scenario", "parent_id":"syncBarrier_A", "duration":528448}
-[2024-02-27 11:59:44::492520] {"event_type":"short_loop", "event":"start", "object":"scenario", "scenario":"syncBarrier_A", "duration":529029}
-[2024-02-27 11:59:44::544753] {"event_type":"short_loop", "event":"finish", "object":"scenario", "scenario":"syncBarrier_A", "duration":581253}
-[2024-02-27 11:59:44::544942] {"event_type":"wait", "event":"start", "object":"barrier", "id":"barrier_reused", "parent_object":"scenario", "parent_id":"syncBarrier_A", "duration":581452}
-[2024-02-27 11:59:44::545019] {"event_type":"short_loop", "event":"finish", "object":"scenario", "scenario":"syncBarrier_B", "duration":581167}
-[2024-02-27 11:59:44::545214] {"event_type":"wait", "event":"start", "object":"barrier", "id":"barrier_reused", "parent_object":"scenario", "parent_id":"syncBarrier_B", "duration":581634}
-[2024-02-27 11:59:44::545329] {"event_type":"short_loop", "event":"finish", "object":"scenario", "scenario":"syncBarrier_C", "duration":581127}
-[2024-02-27 11:59:44::545483] {"event_type":"wait", "event":"start", "object":"barrier", "id":"barrier_reused", "parent_object":"scenario", "parent_id":"syncBarrier_C", "duration":581865}
-[2024-02-27 11:59:44::545624] {"event_type":"wait", "event":"finish", "object":"barrier", "id":"barrier_reused", "parent_object":"scenario", "parent_id":"syncBarrier_C", "duration":582007}
-[2024-02-27 11:59:44::545740] {"event_type":"wait", "event":"finish", "object":"barrier", "id":"barrier_reused", "parent_object":"scenario", "parent_id":"syncBarrier_A", "duration":582244}
-[2024-02-27 11:59:44::545881] {"event_type":"run", "event":"finish", "object":"scenario", "id":"syncBarrier_A", "duration":582385}
-[2024-02-27 11:59:44::545961] {"event_type":"run", "event":"finish", "object":"scenario", "id":"syncBarrier_C", "duration":582124}
-[2024-02-27 11:59:44::546117] {"event_type":"wait", "event":"finish", "object":"barrier", "id":"barrier_reused", "parent_object":"scenario", "parent_id":"syncBarrier_B", "duration":582134}
-[2024-02-27 11:59:44::546235] {"event_type":"run", "event":"finish", "object":"scenario", "id":"syncBarrier_B", "duration":582650}
-[2024-02-27 11:59:44::546314] {"event_type":"run", "event":"finish", "object":"thread_wrapper", "id":1, "state":"SUCCESS"}
-[2024-02-27 11:59:44::546473] {"event_type":"run", "event":"finish", "object":"thread_wrapper", "id":2, "state":"SUCCESS"}
-[2024-02-27 11:59:44::546520] {"event_type":"run", "event":"finish", "object":"thread_wrapper", "id":3, "state":"SUCCESS"}
-[2024-02-27 11:59:44::546557] {"event_type":"run", "event":"finish", "object":"test", "id":"syncBarrier"}
+[2024-02-27 13:14:46::456074] {"event_type":"run", "event":"start", "object":"test", "id":"syncBarrier"}
+[2024-02-27 13:14:46::456613] {"event_type":"run", "event":"start", "object":"thread_wrapper", "id":1}
+[2024-02-27 13:14:46::457050] {"event_type":"run", "event":"start", "object":"thread_wrapper", "id":2}
+[2024-02-27 13:14:46::457244] {"event_type":"run", "event":"start", "object":"scenario", "id":"syncBarrier_A", "duration":0}
+[2024-02-27 13:14:46::457417] {"event_type":"long_loop", "event":"start", "object":"scenario", "id":"syncBarrier_A", "duration":711}
+[2024-02-27 13:14:46::457480] {"event_type":"run", "event":"start", "object":"scenario", "id":"syncBarrier_B", "duration":0}
+[2024-02-27 13:14:46::457657] {"event_type":"run", "event":"start", "object":"scenario", "id":"syncBarrier_C", "duration":0}
+[2024-02-27 13:14:46::457777] {"event_type":"long_loop", "event":"start", "object":"scenario", "id":"syncBarrier_C", "duration":221}
+[2024-02-27 13:14:46::457851] {"event_type":"long_loop", "event":"start", "object":"scenario", "id":"syncBarrier_B", "duration":535}
+[2024-02-27 13:14:46::458033] {"event_type":"run", "event":"start", "object":"thread_wrapper", "id":3}
+[2024-02-27 13:14:46::982924] {"event_type":"long_loop", "event":"finish", "object":"scenario", "id":"syncBarrier_B", "duration":525793}
+[2024-02-27 13:14:46::983148] {"event_type":"wait", "event":"start", "object":"barrier", "id":"barrier", "parent_object":"scenario", "parent_id":"syncBarrier_B", "duration":526022}
+[2024-02-27 13:14:46::983340] {"event_type":"long_loop", "event":"finish", "object":"scenario", "id":"syncBarrier_C", "duration":525359}
+[2024-02-27 13:14:46::983545] {"event_type":"wait", "event":"start", "object":"barrier", "id":"barrier", "parent_object":"scenario", "parent_id":"syncBarrier_C", "duration":525986}
+[2024-02-27 13:14:46::983648] {"event_type":"long_loop", "event":"finish", "object":"scenario", "id":"syncBarrier_A", "duration":526218}
+[2024-02-27 13:14:46::983817] {"event_type":"wait", "event":"start", "object":"barrier", "id":"barrier", "parent_object":"scenario", "parent_id":"syncBarrier_A", "duration":527115}
+[2024-02-27 13:14:46::983938] {"event_type":"wait", "event":"finish", "object":"barrier", "id":"barrier_reused", "parent_object":"scenario", "parent_id":"syncBarrier_A", "duration":527240}
+[2024-02-27 13:14:46::984094] {"event_type":"short_loop", "event":"start", "object":"scenario", "id":"syncBarrier_A", "duration":527397}
+[2024-02-27 13:14:46::984235] {"event_type":"wait", "event":"finish", "object":"barrier", "id":"barrier_reused", "parent_object":"scenario", "parent_id":"syncBarrier_C", "duration":526496}
+[2024-02-27 13:14:46::984371] {"event_type":"short_loop", "event":"start", "object":"scenario", "id":"syncBarrier_C", "duration":526814}
+[2024-02-27 13:14:46::984436] {"event_type":"wait", "event":"finish", "object":"barrier", "id":"barrier_reused", "parent_object":"scenario", "parent_id":"syncBarrier_B", "duration":526924}
+[2024-02-27 13:14:46::984563] {"event_type":"short_loop", "event":"start", "object":"scenario", "id":"syncBarrier_B", "duration":527441}
+[2024-02-27 13:14:47::036998] {"event_type":"short_loop", "event":"finish", "object":"scenario", "id":"syncBarrier_B", "duration":579867}
+[2024-02-27 13:14:47::037221] {"event_type":"wait", "event":"start", "object":"barrier", "id":"barrier_reused", "parent_object":"scenario", "parent_id":"syncBarrier_B", "duration":580099}
+[2024-02-27 13:14:47::037292] {"event_type":"short_loop", "event":"finish", "object":"scenario", "id":"syncBarrier_A", "duration":580292}
+[2024-02-27 13:14:47::037480] {"event_type":"wait", "event":"start", "object":"barrier", "id":"barrier_reused", "parent_object":"scenario", "parent_id":"syncBarrier_A", "duration":580781}
+[2024-02-27 13:14:47::037596] {"event_type":"short_loop", "event":"finish", "object":"scenario", "id":"syncBarrier_C", "duration":579433}
+[2024-02-27 13:14:47::037750] {"event_type":"wait", "event":"start", "object":"barrier", "id":"barrier_reused", "parent_object":"scenario", "parent_id":"syncBarrier_C", "duration":580194}
+[2024-02-27 13:14:47::037885] {"event_type":"wait", "event":"finish", "object":"barrier", "id":"barrier_reused", "parent_object":"scenario", "parent_id":"syncBarrier_C", "duration":580329}
+[2024-02-27 13:14:47::037945] {"event_type":"wait", "event":"finish", "object":"barrier", "id":"barrier_reused", "parent_object":"scenario", "parent_id":"syncBarrier_A", "duration":581238}
+[2024-02-27 13:14:47::038057] {"event_type":"run", "event":"finish", "object":"scenario", "id":"syncBarrier_A", "duration":581354}
+[2024-02-27 13:14:47::038127] {"event_type":"run", "event":"finish", "object":"scenario", "id":"syncBarrier_C", "duration":580392}
+[2024-02-27 13:14:47::038340] {"event_type":"wait", "event":"finish", "object":"barrier", "id":"barrier_reused", "parent_object":"scenario", "parent_id":"syncBarrier_B", "duration":580859}
+[2024-02-27 13:14:47::038475] {"event_type":"run", "event":"finish", "object":"scenario", "id":"syncBarrier_B", "duration":581347}
+[2024-02-27 13:14:47::038552] {"event_type":"run", "event":"finish", "object":"thread_wrapper", "id":1, "state":"SUCCESS"}
+[2024-02-27 13:14:47::038690] {"event_type":"run", "event":"finish", "object":"thread_wrapper", "id":2, "state":"SUCCESS"}
+[2024-02-27 13:14:47::038745] {"event_type":"run", "event":"finish", "object":"thread_wrapper", "id":3, "state":"SUCCESS"}
+[2024-02-27 13:14:47::038790] {"event_type":"run", "event":"finish", "object":"test", "id":"syncBarrier"}
