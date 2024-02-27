@@ -35,8 +35,8 @@ public:
     bool run();
     void wait();
 
-    int get_termination_state();
-    std::string get_termination_state_as_string();
+    int get_finish_state();
+    std::string get_finish_state_as_string();
 
     int get_wrapper_id();
     std::thread::id get_id();
@@ -53,8 +53,8 @@ private:
     int wrapper_id;
     std::function<int()> thread_ftn;
     std::unique_ptr<std::thread> thread_ptr;
-    int termination_state;
-    std::string termination_state_as_string;
+    int finish_state;
+    std::string finish_state_as_string;
 };
 
 #endif

@@ -15,7 +15,7 @@ int ThreadWrapper::get_max_wrapper_id()
 }
 
 ThreadWrapper::ThreadWrapper()
-    : m_pEventLogger(nullptr), m_pScenario(nullptr), wrapper_id(0), thread_ptr(nullptr), termination_state(SCENARIO_RUN_NOOP)
+    : m_pEventLogger(nullptr), m_pScenario(nullptr), wrapper_id(0), thread_ptr(nullptr), finish_state(SCENARIO_RUN_NOOP)
 {
     ThreadWrapper::max_wrapper_id++;
     if(ThreadWrapper::max_wrapper_id == MAX_THREADS)
@@ -27,17 +27,6 @@ ThreadWrapper::ThreadWrapper()
 
 ThreadWrapper::~ThreadWrapper()
 {
-    if(thread_ptr)
-    {
-        // log the event ?
-        if(m_pEventLogger)
-        {
-            std::stringstream ss;
-            ss << "{\"event\":\"destroy std::thread\", \"object\":\"thread_wrapper\", \"thread_wrapper\":" << get_wrapper_id() << "}";        
-            std::string event = ss.str();
-            m_pEventLogger->send_event(event);
-        }
-    }
 }
 
 void ThreadWrapper::set_event_logger(EventLogger *pEventLogger)
@@ -61,29 +50,29 @@ void ThreadWrapper::wait()
     if(thread_ptr) thread_ptr->join();
 }
 
-int ThreadWrapper::get_termination_state()
+int ThreadWrapper::get_finish_state()
 {
-    return termination_state;
+    return finish_state;
 }
 
-std::string ThreadWrapper::get_termination_state_as_string()
+std::string ThreadWrapper::get_finish_state_as_string()
 {
-    switch(termination_state)
+    switch(finish_state)
     {
         case SCENARIO_RUN_ABORT:
-            termination_state_as_string = "ABORT";
+            finish_state_as_string = "ABORT";
             break;
         case SCENARIO_RUN_FAILURE:
-            termination_state_as_string = "FAILURE";
+            finish_state_as_string = "FAILURE";
             break;
         case SCENARIO_RUN_NOOP:
-            termination_state_as_string = "NOOP";
+            finish_state_as_string = "NOOP";
             break;
         case SCENARIO_RUN_SUCCESS:
-            termination_state_as_string = "SUCCESS";
+            finish_state_as_string = "SUCCESS";
             break;
     }
-    return termination_state_as_string;
+    return finish_state_as_string;
 }
 
 int ThreadWrapper::get_wrapper_id()
@@ -107,35 +96,19 @@ std::thread::native_handle_type ThreadWrapper::get_native_handle()
 
 int ThreadWrapper::do_run()
 {
-    termination_state = run_scenario();
+    finish_state = run_scenario();
 
-    return termination_state;
+    return finish_state;
 }
 
 int ThreadWrapper::run_scenario()
 {
     if(m_pScenario)
     {
-        if(m_pEventLogger)
-        {
-            std::stringstream ss;
-            ss << "{\"event\":\"run scenario\", \"object\":\"thread_wrapper\", \"thread_wrapper\":" << get_wrapper_id() << ", \"thread\":" << std::this_thread::get_id() << ", \"scenario\":\"" << m_pScenario->get_id() << "\"}";        
-            std::string event = ss.str();
-            m_pEventLogger->send_event(event);
-        }
-
         return m_pScenario->run();
     }
     else
     {
-        if(m_pEventLogger)
-        {
-            std::stringstream ss;
-            ss << "{\"event\":\"no scenario to run\", \"object\":\"thread_wrapper\", \"thread_wrapper\":" << get_wrapper_id() << ", \"thread\":" << std::this_thread::get_id() << "}";        
-            std::string event = ss.str();
-            m_pEventLogger->send_event(event);
-        }
-
         return SCENARIO_RUN_NOOP;
     }
 }

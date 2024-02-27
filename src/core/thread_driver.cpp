@@ -46,6 +46,15 @@ void ThreadDriver::run()
     for(auto & t : threads)
     {
         t.run();
+
+        // log the event ?
+        if(m_pEventLogger)
+        {
+            std::stringstream ss;
+            ss << "{\"event_type\":\"run\", \"event\":\"start\", \"object\":\"thread_wrapper\", \"id\":" << t.get_wrapper_id() << ", \"}";        
+            std::string event = ss.str();
+            m_pEventLogger->send_event(event);
+        }
     }
 
     for(auto & t : threads)
@@ -56,7 +65,7 @@ void ThreadDriver::run()
         if(m_pEventLogger)
         {
             std::stringstream ss;
-            ss << "{\"event\":\"thread terminated\", \"object\":\"thread_wrapper\", \"thread_wrapper\":" << t.get_wrapper_id() << ", \"termination_state\":\"" << t.get_termination_state_as_string() << "\"}";        
+            ss << "{\"event_type\":\"run\", \"event\":\"finish\", \"object\":\"thread_wrapper\", \"id\":" << t.get_wrapper_id() << ", \"state\":\"" << t.get_finish_state_as_string() << "\"}";        
             std::string event = ss.str();
             m_pEventLogger->send_event(event);
         }

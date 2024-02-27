@@ -25,10 +25,11 @@ bool ThreadManager::isTestRunning()
 
 void ThreadManager::runTest_lockOrderSame()
 {
+    // log the event ?
     if(m_pEventLogger)
     {
         std::string event;
-        event = "{\"event\":\"running\", \"object\":\"test\", \"test\":\"lockOrderSame\"}";
+        event = "{\"event_type\":\"run\", \"event\":\"start\", \"object\":\"test\", \"id\":\"lockOrderSame\"}";
         m_pEventLogger->send_event(event);
     }
 
@@ -43,14 +44,23 @@ void ThreadManager::runTest_lockOrderSame()
     thread_driver.get_thread_wrapper(SCENARIO_LOCK_ORDER_SAME_THREAD_B)->set_scenario(&scenarioB);
     //
     thread_driver.run();
+
+    // log the event ?
+    if(m_pEventLogger)
+    {
+        std::string event;
+        event = "{\"event_type\":\"run\", \"event\":\"finish\", \"object\":\"test\", \"id\":\"lockOrderSame\"}";
+        m_pEventLogger->send_event(event);
+    }
 }
 
 void ThreadManager::runTest_lockOrderInverted()
 {
+    // log the event ?
     if(m_pEventLogger)
     {
         std::string event;
-        event = "{\"event\":\"running\", \"object\":\"test\", \"test\":\"lockOrderInverted\"}";
+        event = "{\"event_type\":\"run\", \"event\":\"start\", \"object\":\"test\", \"id\":\"lockOrderInverted\"}";
         m_pEventLogger->send_event(event);
     }
 
@@ -65,14 +75,23 @@ void ThreadManager::runTest_lockOrderInverted()
     thread_driver.get_thread_wrapper(SCENARIO_LOCK_ORDER_INVERTED_THREAD_B)->set_scenario(&scenarioB);
     //
     thread_driver.run();
+
+    // log the event ?
+    if(m_pEventLogger)
+    {
+        std::string event;
+        event = "{\"event_type\":\"run\", \"event\":\"finish\", \"object\":\"test\", \"id\":\"lockOrderInverted\"}";
+        m_pEventLogger->send_event(event);
+    }
 }
 
 void ThreadManager::runTest_syncLatch()
 {
+    // log the event ?
     if(m_pEventLogger)
     {
         std::string event;
-        event = "{\"event\":\"running\", \"object\":\"test\", \"test\":\"syncLatch\"}";
+        event = "{\"event_type\":\"run\", \"event\":\"start\", \"object\":\"test\", \"id\":\"syncLatch\"}";
         m_pEventLogger->send_event(event);
     }
 
@@ -91,14 +110,23 @@ void ThreadManager::runTest_syncLatch()
     thread_driver.get_thread_wrapper(SCENARIO_SYNC_LATCH_THREAD_C)->set_scenario(&scenarioC);
     //
     thread_driver.run();
+
+    // log the event ?
+    if(m_pEventLogger)
+    {
+        std::string event;
+        event = "{\"event_type\":\"run\", \"event\":\"finish\", \"object\":\"test\", \"id\":\"syncLatch\"}";
+        m_pEventLogger->send_event(event);
+    }
 }
 
 void ThreadManager::runTest_syncBarrier()
 {
+    // log the event ?
     if(m_pEventLogger)
     {
         std::string event;
-        event = "{\"event\":\"running\", \"object\":\"test\", \"test\":\"syncBarrier\"}";
+        event = "{\"event_type\":\"run\", \"event\":\"start\", \"object\":\"test\", \"id\":\"syncBarrier\"}";
         m_pEventLogger->send_event(event);
     }
 
@@ -117,4 +145,12 @@ void ThreadManager::runTest_syncBarrier()
     thread_driver.get_thread_wrapper(SCENARIO_SYNC_BARRIER_THREAD_C)->set_scenario(&scenarioC);
     //
     thread_driver.run();
+
+    // log the event ?
+    if(m_pEventLogger)
+    {
+        std::string event;
+        event = "{\"event_type\":\"run\", \"event\":\"finish\", \"object\":\"test\", \"id\":\"syncBarrier\"}";
+        m_pEventLogger->send_event(event);
+    }
 }
