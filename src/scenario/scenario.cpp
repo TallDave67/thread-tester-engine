@@ -47,7 +47,7 @@ int Scenario::run()
     if(m_pEventLogger)
     {
         std::stringstream ss;
-        ss << "{\"event_type\":\"run\", \"event\":\"finish\", \"object\":\"scenario\", \"id\":\"" << get_id() <<  ", \"duration\":" << timer.duration_in_microseconds() << "}";
+        ss << "{\"event_type\":\"run\", \"event\":\"finish\", \"object\":\"scenario\", \"id\":\"" << get_id() <<  "\", \"duration\":" << timer.duration_in_microseconds() << "}";
         std::string event = ss.str();
         m_pEventLogger->send_event(event);
     }

@@ -1,38 +1,38 @@
-[2024-02-27 11:57:06::571266] {"event_type":"run", "event":"start", "object":"test", "id":"syncLatch"}
-[2024-02-27 11:57:06::571663] {"event_type":"run", "event":"start", "object":"thread_wrapper", "id":1}
-[2024-02-27 11:57:06::571885] {"event_type":"run", "event":"start", "object":"scenario", "id":"syncLatch_A", "duration":0}
-[2024-02-27 11:57:06::571986] {"event_type":"long_loop", "event":"start", "object":"scenario", "scenario":"syncLatch_A", "duration":259}
-[2024-02-27 11:57:06::572064] {"event_type":"run", "event":"start", "object":"thread_wrapper", "id":2}
-[2024-02-27 11:57:06::572156] {"event_type":"run", "event":"start", "object":"scenario", "id":"syncLatch_B", "duration":0}
-[2024-02-27 11:57:06::572254] {"event_type":"long_loop", "event":"start", "object":"scenario", "scenario":"syncLatch_B", "duration":312}
-[2024-02-27 11:57:06::572338] {"event_type":"run", "event":"start", "object":"thread_wrapper", "id":3}
-[2024-02-27 11:57:06::572427] {"event_type":"run", "event":"start", "object":"scenario", "id":"syncLatch_C", "duration":0}
-[2024-02-27 11:57:06::573026] {"event_type":"long_loop", "event":"start", "object":"scenario", "scenario":"syncLatch_C", "duration":727}
-[2024-02-27 11:57:07::089967] {"event_type":"long_loop", "event":"finish", "object":"scenario", "scenario":"syncLatch_B", "duration":518018}
-[2024-02-27 11:57:07::090203] {"event_type":"wait", "event":"start", "object":"latch", "id":"latch1", "parent_object":"scenario", "parent_id":"syncLatch_B", "duration":518259}
-[2024-02-27 11:57:07::090277] {"event_type":"long_loop", "event":"finish", "object":"scenario", "scenario":"syncLatch_A", "duration":518241}
-[2024-02-27 11:57:07::090509] {"event_type":"wait", "event":"start", "object":"latch", "id":"latch1", "parent_object":"scenario", "parent_id":"syncLatch_A", "duration":518784}
-[2024-02-27 11:57:07::090706] {"event_type":"long_loop", "event":"finish", "object":"scenario", "scenario":"syncLatch_C", "duration":517662}
-[2024-02-27 11:57:07::090850] {"event_type":"wait", "event":"start", "object":"latch", "id":"latch1", "parent_object":"scenario", "parent_id":"syncLatch_C", "duration":518550}
-[2024-02-27 11:57:07::090940] {"event_type":"wait", "event":"finish", "object":"latch", "id":"latch1", "parent_object":"scenario", "parent_id":"syncLatch_C", "duration":518640}
-[2024-02-27 11:57:07::091028] {"event_type":"wait", "event":"finish", "object":"latch", "id":"latch1", "parent_object":"scenario", "parent_id":"syncLatch_A", "duration":519304}
-[2024-02-27 11:57:07::091152] {"event_type":"short_loop", "event":"start", "object":"scenario", "scenario":"syncLatch_A", "duration":519433}
-[2024-02-27 11:57:07::091219] {"event_type":"short_loop", "event":"start", "object":"scenario", "scenario":"syncLatch_C", "duration":518750}
-[2024-02-27 11:57:07::091387] {"event_type":"wait", "event":"finish", "object":"latch", "id":"latch1", "parent_object":"scenario", "parent_id":"syncLatch_B", "duration":519034}
-[2024-02-27 11:57:07::091493] {"event_type":"short_loop", "event":"start", "object":"scenario", "scenario":"syncLatch_B", "duration":519551}
-[2024-02-27 11:57:07::143248] {"event_type":"short_loop", "event":"finish", "object":"scenario", "scenario":"syncLatch_C", "duration":570940}
-[2024-02-27 11:57:07::143438] {"event_type":"wait", "event":"start", "object":"latch", "id":"latch2", "parent_object":"scenario", "parent_id":"syncLatch_C", "duration":571140}
-[2024-02-27 11:57:07::143566] {"event_type":"short_loop", "event":"finish", "object":"scenario", "scenario":"syncLatch_B", "duration":571309}
-[2024-02-27 11:57:07::143694] {"event_type":"wait", "event":"start", "object":"latch", "id":"latch2", "parent_object":"scenario", "parent_id":"syncLatch_B", "duration":571751}
-[2024-02-27 11:57:07::143762] {"event_type":"short_loop", "event":"finish", "object":"scenario", "scenario":"syncLatch_A", "duration":571531}
-[2024-02-27 11:57:07::143911] {"event_type":"wait", "event":"start", "object":"latch", "id":"latch2", "parent_object":"scenario", "parent_id":"syncLatch_A", "duration":572191}
-[2024-02-27 11:57:07::143993] {"event_type":"wait", "event":"finish", "object":"latch", "id":"latch2", "parent_object":"scenario", "parent_id":"syncLatch_A", "duration":572275}
-[2024-02-27 11:57:07::144096] {"event_type":"wait", "event":"finish", "object":"latch", "id":"latch2", "parent_object":"scenario", "parent_id":"syncLatch_B", "duration":572148}
-[2024-02-27 11:57:07::144250] {"event_type":"run", "event":"finish", "object":"scenario", "id":"syncLatch_B, "duration":572292}
-[2024-02-27 11:57:07::144405] {"event_type":"run", "event":"finish", "object":"scenario", "id":"syncLatch_A, "duration":572378}
-[2024-02-27 11:57:07::144611] {"event_type":"wait", "event":"finish", "object":"latch", "id":"latch2", "parent_object":"scenario", "parent_id":"syncLatch_C", "duration":571793}
-[2024-02-27 11:57:07::144749] {"event_type":"run", "event":"finish", "object":"scenario", "id":"syncLatch_C, "duration":572444}
-[2024-02-27 11:57:07::144892] {"event_type":"run", "event":"finish", "object":"thread_wrapper", "id":1, "state":"SUCCESS"}
-[2024-02-27 11:57:07::145027] {"event_type":"run", "event":"finish", "object":"thread_wrapper", "id":2, "state":"SUCCESS"}
-[2024-02-27 11:57:07::145083] {"event_type":"run", "event":"finish", "object":"thread_wrapper", "id":3, "state":"SUCCESS"}
-[2024-02-27 11:57:07::145127] {"event_type":"run", "event":"finish", "object":"test", "id":"syncLatch"}
+[2024-02-27 11:59:43::372546] {"event_type":"run", "event":"start", "object":"test", "id":"syncLatch"}
+[2024-02-27 11:59:43::373083] {"event_type":"run", "event":"start", "object":"thread_wrapper", "id":1}
+[2024-02-27 11:59:43::373396] {"event_type":"run", "event":"start", "object":"thread_wrapper", "id":2}
+[2024-02-27 11:59:43::373573] {"event_type":"run", "event":"start", "object":"scenario", "id":"syncLatch_A", "duration":0}
+[2024-02-27 11:59:43::373773] {"event_type":"run", "event":"start", "object":"thread_wrapper", "id":3}
+[2024-02-27 11:59:43::373945] {"event_type":"run", "event":"start", "object":"scenario", "id":"syncLatch_C", "duration":0}
+[2024-02-27 11:59:43::374057] {"event_type":"long_loop", "event":"start", "object":"scenario", "scenario":"syncLatch_C", "duration":240}
+[2024-02-27 11:59:43::374126] {"event_type":"run", "event":"start", "object":"scenario", "id":"syncLatch_B", "duration":0}
+[2024-02-27 11:59:43::374309] {"event_type":"long_loop", "event":"start", "object":"scenario", "scenario":"syncLatch_B", "duration":813}
+[2024-02-27 11:59:43::374378] {"event_type":"long_loop", "event":"start", "object":"scenario", "scenario":"syncLatch_A", "duration":609}
+[2024-02-27 11:59:43::900808] {"event_type":"long_loop", "event":"finish", "object":"scenario", "scenario":"syncLatch_A", "duration":527631}
+[2024-02-27 11:59:43::901013] {"event_type":"wait", "event":"start", "object":"latch", "id":"latch1", "parent_object":"scenario", "parent_id":"syncLatch_A", "duration":527844}
+[2024-02-27 11:59:43::901095] {"event_type":"long_loop", "event":"finish", "object":"scenario", "scenario":"syncLatch_B", "duration":527305}
+[2024-02-27 11:59:43::901312] {"event_type":"wait", "event":"start", "object":"latch", "id":"latch1", "parent_object":"scenario", "parent_id":"syncLatch_B", "duration":527807}
+[2024-02-27 11:59:43::901529] {"event_type":"long_loop", "event":"finish", "object":"scenario", "scenario":"syncLatch_C", "duration":526983}
+[2024-02-27 11:59:43::901752] {"event_type":"wait", "event":"start", "object":"latch", "id":"latch1", "parent_object":"scenario", "parent_id":"syncLatch_C", "duration":527929}
+[2024-02-27 11:59:43::901886] {"event_type":"wait", "event":"finish", "object":"latch", "id":"latch1", "parent_object":"scenario", "parent_id":"syncLatch_C", "duration":528067}
+[2024-02-27 11:59:43::901977] {"event_type":"wait", "event":"finish", "object":"latch", "id":"latch1", "parent_object":"scenario", "parent_id":"syncLatch_B", "duration":528471}
+[2024-02-27 11:59:43::902118] {"event_type":"short_loop", "event":"start", "object":"scenario", "scenario":"syncLatch_B", "duration":528623}
+[2024-02-27 11:59:43::902187] {"event_type":"short_loop", "event":"start", "object":"scenario", "scenario":"syncLatch_C", "duration":528184}
+[2024-02-27 11:59:43::902375] {"event_type":"wait", "event":"finish", "object":"latch", "id":"latch1", "parent_object":"scenario", "parent_id":"syncLatch_A", "duration":528752}
+[2024-02-27 11:59:43::902496] {"event_type":"short_loop", "event":"start", "object":"scenario", "scenario":"syncLatch_A", "duration":529327}
+[2024-02-27 11:59:43::955238] {"event_type":"short_loop", "event":"finish", "object":"scenario", "scenario":"syncLatch_C", "duration":581414}
+[2024-02-27 11:59:43::955407] {"event_type":"wait", "event":"start", "object":"latch", "id":"latch2", "parent_object":"scenario", "parent_id":"syncLatch_C", "duration":581592}
+[2024-02-27 11:59:43::955485] {"event_type":"short_loop", "event":"finish", "object":"scenario", "scenario":"syncLatch_B", "duration":581735}
+[2024-02-27 11:59:43::955629] {"event_type":"wait", "event":"start", "object":"latch", "id":"latch2", "parent_object":"scenario", "parent_id":"syncLatch_B", "duration":582134}
+[2024-02-27 11:59:43::955704] {"event_type":"short_loop", "event":"finish", "object":"scenario", "scenario":"syncLatch_A", "duration":582062}
+[2024-02-27 11:59:43::955843] {"event_type":"wait", "event":"start", "object":"latch", "id":"latch2", "parent_object":"scenario", "parent_id":"syncLatch_A", "duration":582674}
+[2024-02-27 11:59:43::955915] {"event_type":"wait", "event":"finish", "object":"latch", "id":"latch2", "parent_object":"scenario", "parent_id":"syncLatch_A", "duration":582748}
+[2024-02-27 11:59:43::956008] {"event_type":"wait", "event":"finish", "object":"latch", "id":"latch2", "parent_object":"scenario", "parent_id":"syncLatch_C", "duration":582188}
+[2024-02-27 11:59:43::956121] {"event_type":"run", "event":"finish", "object":"scenario", "id":"syncLatch_C", "duration":582301}
+[2024-02-27 11:59:43::956198] {"event_type":"run", "event":"finish", "object":"scenario", "id":"syncLatch_A", "duration":582840}
+[2024-02-27 11:59:43::956400] {"event_type":"wait", "event":"finish", "object":"latch", "id":"latch2", "parent_object":"scenario", "parent_id":"syncLatch_B", "duration":582526}
+[2024-02-27 11:59:43::956527] {"event_type":"run", "event":"finish", "object":"scenario", "id":"syncLatch_B", "duration":583026}
+[2024-02-27 11:59:43::956611] {"event_type":"run", "event":"finish", "object":"thread_wrapper", "id":1, "state":"SUCCESS"}
+[2024-02-27 11:59:43::956732] {"event_type":"run", "event":"finish", "object":"thread_wrapper", "id":2, "state":"SUCCESS"}
+[2024-02-27 11:59:43::956779] {"event_type":"run", "event":"finish", "object":"thread_wrapper", "id":3, "state":"SUCCESS"}
+[2024-02-27 11:59:43::956819] {"event_type":"run", "event":"finish", "object":"test", "id":"syncLatch"}
