@@ -19,9 +19,12 @@ def organize_scenario_durations(test_output_file):
         print(f"Error: {e}")
 
     # loop across events and organize them into dictionary of Scenario objects
+    title = "Test"
     scenarios = {}
     for event in events:
-        if event["object"] == "scenario":
+        if event["object"] == "test":
+            title = event["id"]
+        elif event["object"] == "scenario":
             if event["event_type"] == "run":
                 if event["event"] == "start":
                     scenarios[event["id"]] = {}
@@ -53,7 +56,9 @@ def organize_scenario_durations(test_output_file):
                     event["event"] == "finish_success" or \
                     event["event"] == "finish_failure":
                     scenarios[event["parent_id"]][event["event_type"]][event["id"]][event["event"]] = event["duration"]
+    print(title)
     print(scenarios)
+    return title, scenarios
 
 if __name__ == "__main__":
     organize_scenario_durations("tests/output/lockOrderInverted_latest_output.txt")
