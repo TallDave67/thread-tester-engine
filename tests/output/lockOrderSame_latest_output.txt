@@ -1,34 +1,34 @@
-[2024-02-27 13:14:39::631294] {"event_type":"run", "event":"start", "object":"test", "id":"lockOrderSame"}
-[2024-02-27 13:14:39::631563] {"event_type":"run", "event":"start", "object":"thread_wrapper", "id":1}
-[2024-02-27 13:14:39::631680] {"event_type":"run", "event":"start", "object":"thread_wrapper", "id":2}
-[2024-02-27 13:14:39::631737] {"event_type":"run", "event":"start", "object":"scenario", "id":"lockOrderSame_A", "duration":0}
-[2024-02-27 13:14:39::631800] {"event_type":"run", "event":"start", "object":"scenario", "id":"lockOrderSame_B", "duration":0}
-[2024-02-27 13:14:39::631851] {"event_type":"acquire_lock", "event":"start", "object":"mutex", "id":"mutex1", "parent_object":"scenario", "parent_id":"lockOrderSame_B", "duration":156}
-[2024-02-27 13:14:39::631880] {"event_type":"acquire_lock", "event":"finish_success", "object":"mutex", "id":"mutex1", "parent_object":"scenario", "parent_id":"lockOrderSame_B", "duration":186}
-[2024-02-27 13:14:39::631904] {"event_type":"use_lock", "event":"start", "object":"mutex", "id":"mutex1", "parent_object":"scenario", "parent_id":"lockOrderSame_B", "duration":210}
-[2024-02-27 13:14:39::631928] {"event_type":"long_loop", "event":"start", "object":"scenario", "id":"lockOrderSame_B", "duration":234}
-[2024-02-27 13:14:39::631955] {"event_type":"acquire_lock", "event":"start", "object":"mutex", "id":"mutex1", "parent_object":"scenario", "parent_id":"lockOrderSame_A", "duration":171}
-[2024-02-27 13:14:40::158952] {"event_type":"long_loop", "event":"finish", "object":"scenario", "id":"lockOrderSame_B", "duration":527246}
-[2024-02-27 13:14:40::159171] {"event_type":"acquire_lock", "event":"start", "object":"mutex", "id":"mutex2", "parent_object":"scenario", "parent_id":"lockOrderSame_B", "duration":527471}
-[2024-02-27 13:14:40::159288] {"event_type":"acquire_lock", "event":"finish_success", "object":"mutex", "id":"mutex2", "parent_object":"scenario", "parent_id":"lockOrderSame_B", "duration":527590}
-[2024-02-27 13:14:40::159370] {"event_type":"use_lock", "event":"start", "object":"mutex", "id":"mutex2", "parent_object":"scenario", "parent_id":"lockOrderSame_B", "duration":527673}
-[2024-02-27 13:14:40::159463] {"event_type":"use_lock", "event":"finish", "object":"mutex", "id":"mutex1", "parent_object":"scenario", "parent_id":"lockOrderSame_B", "duration":527766}
-[2024-02-27 13:14:40::159546] {"event_type":"short_loop", "event":"start", "object":"scenario", "id":"lockOrderSame_B", "duration":527847}
-[2024-02-27 13:14:40::159667] {"event_type":"acquire_lock", "event":"finish_success", "object":"mutex", "id":"mutex1", "parent_object":"scenario", "parent_id":"lockOrderSame_A", "duration":527942}
-[2024-02-27 13:14:40::159812] {"event_type":"use_lock", "event":"start", "object":"mutex", "id":"mutex1", "parent_object":"scenario", "parent_id":"lockOrderSame_A", "duration":528186}
-[2024-02-27 13:14:40::159876] {"event_type":"long_loop", "event":"start", "object":"scenario", "id":"lockOrderSame_A", "duration":528249}
-[2024-02-27 13:14:40::212410] {"event_type":"short_loop", "event":"finish", "object":"scenario", "id":"lockOrderSame_B", "duration":580705}
-[2024-02-27 13:14:40::212604] {"event_type":"use_lock", "event":"finish", "object":"mutex", "id":"mutex2", "parent_object":"scenario", "parent_id":"lockOrderSame_B", "duration":580903}
-[2024-02-27 13:14:40::212709] {"event_type":"run", "event":"finish", "object":"scenario", "id":"lockOrderSame_B", "duration":581006}
-[2024-02-27 13:14:40::688345] {"event_type":"long_loop", "event":"finish", "object":"scenario", "id":"lockOrderSame_A", "duration":1056709}
-[2024-02-27 13:14:40::688530] {"event_type":"acquire_lock", "event":"start", "object":"mutex", "id":"mutex2", "parent_object":"scenario", "parent_id":"lockOrderSame_A", "duration":1056905}
-[2024-02-27 13:14:40::688601] {"event_type":"acquire_lock", "event":"finish_success", "object":"mutex", "id":"mutex2", "parent_object":"scenario", "parent_id":"lockOrderSame_A", "duration":1056976}
-[2024-02-27 13:14:40::688655] {"event_type":"use_lock", "event":"start", "object":"mutex", "id":"mutex2", "parent_object":"scenario", "parent_id":"lockOrderSame_A", "duration":1057031}
-[2024-02-27 13:14:40::688843] {"event_type":"use_lock", "event":"finish", "object":"mutex", "id":"mutex1", "parent_object":"scenario", "parent_id":"lockOrderSame_A", "duration":1057212}
-[2024-02-27 13:14:40::688976] {"event_type":"short_loop", "event":"start", "object":"scenario", "id":"lockOrderSame_A", "duration":1057347}
-[2024-02-27 13:14:40::741684] {"event_type":"short_loop", "event":"finish", "object":"scenario", "id":"lockOrderSame_A", "duration":1110049}
-[2024-02-27 13:14:40::741859] {"event_type":"use_lock", "event":"finish", "object":"mutex", "id":"mutex2", "parent_object":"scenario", "parent_id":"lockOrderSame_A", "duration":1110233}
-[2024-02-27 13:14:40::741915] {"event_type":"run", "event":"finish", "object":"scenario", "id":"lockOrderSame_A", "duration":1110287}
-[2024-02-27 13:14:40::742154] {"event_type":"run", "event":"finish", "object":"thread_wrapper", "id":1, "state":"SUCCESS"}
-[2024-02-27 13:14:40::742264] {"event_type":"run", "event":"finish", "object":"thread_wrapper", "id":2, "state":"SUCCESS"}
-[2024-02-27 13:14:40::742314] {"event_type":"run", "event":"finish", "object":"test", "id":"lockOrderSame"}
+[2024-02-27 13:36:55::199396] {"event_type":"run", "event":"start", "object":"test", "id":"lockOrderSame"}
+[2024-02-27 13:36:55::199618] {"event_type":"run", "event":"start", "object":"thread_wrapper", "id":1}
+[2024-02-27 13:36:55::199705] {"event_type":"run", "event":"start", "object":"scenario", "id":"lockOrderSame_A", "duration":0}
+[2024-02-27 13:36:55::199761] {"event_type":"run", "event":"start", "object":"thread_wrapper", "id":2}
+[2024-02-27 13:36:55::199801] {"event_type":"run", "event":"start", "object":"scenario", "id":"lockOrderSame_B", "duration":0}
+[2024-02-27 13:36:55::199846] {"event_type":"acquire_lock", "event":"start", "object":"mutex", "id":"mutex1", "parent_object":"scenario", "parent_id":"lockOrderSame_A", "duration":129}
+[2024-02-27 13:36:55::199877] {"event_type":"acquire_lock", "event":"finish_success", "object":"mutex", "id":"mutex1", "parent_object":"scenario", "parent_id":"lockOrderSame_A", "duration":245}
+[2024-02-27 13:36:55::199894] {"event_type":"use_lock", "event":"start", "object":"mutex", "id":"mutex1", "parent_object":"scenario", "parent_id":"lockOrderSame_A", "duration":263}
+[2024-02-27 13:36:55::199910] {"event_type":"long_loop", "event":"start", "object":"scenario", "id":"lockOrderSame_A", "duration":279}
+[2024-02-27 13:36:55::199929] {"event_type":"acquire_lock", "event":"start", "object":"mutex", "id":"mutex1", "parent_object":"scenario", "parent_id":"lockOrderSame_B", "duration":96}
+[2024-02-27 13:36:55::729422] {"event_type":"long_loop", "event":"finish", "object":"scenario", "id":"lockOrderSame_A", "duration":529780}
+[2024-02-27 13:36:55::729643] {"event_type":"acquire_lock", "event":"start", "object":"mutex", "id":"mutex2", "parent_object":"scenario", "parent_id":"lockOrderSame_A", "duration":530003}
+[2024-02-27 13:36:55::729803] {"event_type":"acquire_lock", "event":"finish_success", "object":"mutex", "id":"mutex2", "parent_object":"scenario", "parent_id":"lockOrderSame_A", "duration":530166}
+[2024-02-27 13:36:55::729892] {"event_type":"use_lock", "event":"start", "object":"mutex", "id":"mutex2", "parent_object":"scenario", "parent_id":"lockOrderSame_A", "duration":530258}
+[2024-02-27 13:36:55::729962] {"event_type":"use_lock", "event":"finish", "object":"mutex", "id":"mutex1", "parent_object":"scenario", "parent_id":"lockOrderSame_A", "duration":530328}
+[2024-02-27 13:36:55::730016] {"event_type":"short_loop", "event":"start", "object":"scenario", "id":"lockOrderSame_A", "duration":530383}
+[2024-02-27 13:36:55::730076] {"event_type":"acquire_lock", "event":"finish_success", "object":"mutex", "id":"mutex1", "parent_object":"scenario", "parent_id":"lockOrderSame_B", "duration":530316}
+[2024-02-27 13:36:55::730208] {"event_type":"use_lock", "event":"start", "object":"mutex", "id":"mutex1", "parent_object":"scenario", "parent_id":"lockOrderSame_B", "duration":530455}
+[2024-02-27 13:36:55::730273] {"event_type":"long_loop", "event":"start", "object":"scenario", "id":"lockOrderSame_B", "duration":530519}
+[2024-02-27 13:36:55::783052] {"event_type":"short_loop", "event":"finish", "object":"scenario", "id":"lockOrderSame_A", "duration":583406}
+[2024-02-27 13:36:55::783238] {"event_type":"use_lock", "event":"finish", "object":"mutex", "id":"mutex2", "parent_object":"scenario", "parent_id":"lockOrderSame_A", "duration":583604}
+[2024-02-27 13:36:55::783306] {"event_type":"run", "event":"finish", "object":"scenario", "id":"lockOrderSame_A", "duration":583669}
+[2024-02-27 13:36:55::783607] {"event_type":"run", "event":"finish", "object":"thread_wrapper", "id":1, "state":"SUCCESS"}
+[2024-02-27 13:36:56::259081] {"event_type":"long_loop", "event":"finish", "object":"scenario", "id":"lockOrderSame_B", "duration":1059318}
+[2024-02-27 13:36:56::259283] {"event_type":"acquire_lock", "event":"start", "object":"mutex", "id":"mutex2", "parent_object":"scenario", "parent_id":"lockOrderSame_B", "duration":1059526}
+[2024-02-27 13:36:56::259393] {"event_type":"acquire_lock", "event":"finish_success", "object":"mutex", "id":"mutex2", "parent_object":"scenario", "parent_id":"lockOrderSame_B", "duration":1059639}
+[2024-02-27 13:36:56::259602] {"event_type":"use_lock", "event":"start", "object":"mutex", "id":"mutex2", "parent_object":"scenario", "parent_id":"lockOrderSame_B", "duration":1059844}
+[2024-02-27 13:36:56::259699] {"event_type":"use_lock", "event":"finish", "object":"mutex", "id":"mutex1", "parent_object":"scenario", "parent_id":"lockOrderSame_B", "duration":1059947}
+[2024-02-27 13:36:56::259750] {"event_type":"short_loop", "event":"start", "object":"scenario", "id":"lockOrderSame_B", "duration":1059997}
+[2024-02-27 13:36:56::312692] {"event_type":"short_loop", "event":"finish", "object":"scenario", "id":"lockOrderSame_B", "duration":1112929}
+[2024-02-27 13:36:56::312865] {"event_type":"use_lock", "event":"finish", "object":"mutex", "id":"mutex2", "parent_object":"scenario", "parent_id":"lockOrderSame_B", "duration":1113111}
+[2024-02-27 13:36:56::312921] {"event_type":"run", "event":"finish", "object":"scenario", "id":"lockOrderSame_B", "duration":1113166}
+[2024-02-27 13:36:56::313136] {"event_type":"run", "event":"finish", "object":"thread_wrapper", "id":2, "state":"SUCCESS"}
+[2024-02-27 13:36:56::313241] {"event_type":"run", "event":"finish", "object":"test", "id":"lockOrderSame"}
